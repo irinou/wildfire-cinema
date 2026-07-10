@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Theoretical Framework — Climate Crisis & Wildfire Cinema</title>
+<title>Wildfire on Screen — Theoretical Framework</title>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -13,167 +13,159 @@
   --ink3:     #706e69;
   --ink4:     #a8a6a0;
   --paper:    #f5f2eb;
-  --paper2:   #ede9e0;
+  --paper2:   #edeae1;
   --paper3:   #e2ddd2;
   --rule:     #d4cfc5;
-
-  --coral:    #c94a1f;
-  --coral-bg: #faeae3;
-  --purple:   #5a4fcf;
-  --purple-bg:#eeedf8;
-  --teal:     #0f7a5a;
-  --teal-bg:  #e2f5ee;
-  --amber:    #a85f0a;
-  --amber-bg: #fdf0dc;
+  --fire:     #c94a1f;
+  --fire-bg:  #faeae3;
+  --deep:     #1a3a5c;
+  --deep-bg:  #e6eef4;
+  --forest:   #0f6a40;
+  --forest-bg:#e2f4ec;
+  --gold:     #96540a;
+  --gold-bg:  #fdf0dc;
   --slate:    #3d5a72;
   --slate-bg: #e8eff4;
-
   --serif: Georgia, 'Times New Roman', serif;
-  --sans:  'Helvetica Neue', Arial, sans-serif;
+  --sans: 'Helvetica Neue', Arial, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --ink:      #f0ede6;
-    --ink2:     #c8c4bc;
-    --ink3:     #888480;
-    --ink4:     #555250;
-    --paper:    #141310;
-    --paper2:   #1c1a17;
-    --paper3:   #242118;
-    --rule:     #333028;
-    --coral-bg: #2a1208;
-    --purple-bg:#1a1840;
-    --teal-bg:  #081f16;
-    --amber-bg: #1f1404;
-    --slate-bg: #0d1a22;
+    --ink: #f0ede6; --ink2: #c8c4bc; --ink3: #88847e; --ink4: #555250;
+    --paper: #131210; --paper2: #1b1916; --paper3: #222019; --rule: #302e28;
+    --fire-bg: #2a1208; --deep-bg: #0a1620; --forest-bg: #081a10;
+    --gold-bg: #1e1204; --slate-bg: #0d1820;
   }
 }
 
-body {
-  font-family: var(--serif);
-  background: var(--paper);
-  color: var(--ink);
-  min-height: 100vh;
-}
+body { font-family: var(--serif); background: var(--paper); color: var(--ink); min-height: 100vh; }
 
 /* ── MASTHEAD ── */
-.masthead {
-  border-bottom: 2px solid var(--ink);
-  padding: 2rem 2.5rem 1.5rem;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: end;
-  gap: 1rem;
+.mast {
+  border-bottom: 3px solid var(--ink);
+  padding: 2rem 2.5rem 1.75rem;
 }
-.masthead-left {}
-.eyebrow {
+.mast-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.mast-eye {
   font-family: var(--sans);
   font-size: 10px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--ink3);
+  color: var(--ink4);
   margin-bottom: 0.6rem;
 }
-.masthead h1 {
-  font-size: clamp(22px, 4vw, 36px);
+.mast h1 {
+  font-size: clamp(24px, 4.5vw, 42px);
   font-weight: normal;
-  line-height: 1.15;
-  color: var(--ink);
-  max-width: 600px;
+  line-height: 1.1;
+  max-width: 560px;
 }
-.masthead-meta {
+.mast h1 em { font-style: italic; color: var(--fire); }
+.mast-stat {
+  text-align: right;
+  flex-shrink: 0;
+}
+.stat-n {
+  font-size: clamp(52px, 8vw, 80px);
+  line-height: 1;
+  color: var(--fire);
+  font-weight: normal;
+  display: block;
+}
+.stat-label {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink4);
+}
+.mast-bottom {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.mast-fact {
   font-family: var(--sans);
   font-size: 12px;
   color: var(--ink3);
-  margin-top: 0.5rem;
   line-height: 1.5;
+  max-width: 240px;
 }
-.masthead-right {
-  text-align: right;
-}
-.issue-label {
-  font-family: var(--sans);
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink4);
-  display: block;
-  margin-bottom: 4px;
-}
-.issue-num {
-  font-size: clamp(28px, 5vw, 48px);
-  font-weight: normal;
-  color: var(--coral);
-  line-height: 1;
-}
+.mast-fact strong { color: var(--fire); font-weight: 600; }
 
 /* ── TOOLBAR ── */
-.toolbar {
+.bar {
   border-bottom: 1px solid var(--rule);
-  padding: 0.75rem 2.5rem;
+  padding: 0.6rem 2.5rem;
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
   align-items: center;
   flex-wrap: wrap;
   background: var(--paper2);
 }
-.toolbar-label {
+.bar-label {
   font-family: var(--sans);
-  font-size: 10px;
-  letter-spacing: 0.12em;
+  font-size: 9px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--ink4);
   white-space: nowrap;
 }
-.search-wrap {
+.srch {
   position: relative;
   flex: 1;
-  min-width: 160px;
-  max-width: 260px;
+  min-width: 140px;
+  max-width: 220px;
 }
-.search-wrap input {
+.srch input {
   width: 100%;
   font-family: var(--sans);
   font-size: 12px;
-  padding: 5px 10px 5px 28px;
+  padding: 4px 8px 4px 26px;
   border: 1px solid var(--rule);
-  border-radius: 3px;
+  border-radius: 2px;
   background: var(--paper);
   color: var(--ink);
   outline: none;
 }
-.search-wrap input:focus { border-color: var(--ink3); }
-.search-icon {
+.srch input:focus { border-color: var(--ink3); }
+.srch-icon {
   position: absolute;
-  left: 8px; top: 50%;
+  left: 7px; top: 50%;
   transform: translateY(-50%);
-  font-size: 13px;
+  font-size: 14px;
   color: var(--ink4);
   pointer-events: none;
+  line-height: 1;
 }
-.filter-group {
-  display: flex;
-  gap: 4px;
-  flex-wrap: wrap;
-}
-.filter-btn {
+.filters { display: flex; gap: 3px; flex-wrap: wrap; }
+.fb {
   font-family: var(--sans);
-  font-size: 10px;
-  letter-spacing: 0.08em;
+  font-size: 9px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 4px 10px;
+  padding: 4px 9px;
   border: 1px solid var(--rule);
-  border-radius: 2px;
+  border-radius: 1px;
   background: var(--paper);
   color: var(--ink3);
   cursor: pointer;
-  transition: all 0.15s;
   white-space: nowrap;
+  transition: all 0.12s;
 }
-.filter-btn:hover { border-color: var(--ink3); color: var(--ink); }
-.filter-btn.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-.wildfire-toggle {
+.fb:hover { border-color: var(--ink3); color: var(--ink); }
+.fb.on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.wftog {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -181,222 +173,172 @@ body {
   font-size: 11px;
   color: var(--ink3);
   cursor: pointer;
+  user-select: none;
   white-space: nowrap;
 }
-.toggle-track {
-  width: 32px; height: 17px;
+.trk {
+  width: 30px; height: 16px;
   background: var(--rule);
-  border-radius: 9px;
+  border-radius: 8px;
   position: relative;
   transition: background 0.2s;
   flex-shrink: 0;
 }
-.toggle-track.on { background: var(--coral); }
-.toggle-thumb {
+.trk.on { background: var(--fire); }
+.thu {
   position: absolute;
   top: 2px; left: 2px;
-  width: 13px; height: 13px;
+  width: 12px; height: 12px;
   background: white;
   border-radius: 50%;
   transition: transform 0.2s;
 }
-.toggle-track.on .toggle-thumb { transform: translateX(15px); }
+.trk.on .thu { transform: translateX(14px); }
 
-/* ── MAIN LAYOUT ── */
-.main {
-  display: grid;
-  grid-template-columns: 1fr 340px;
-  min-height: calc(100vh - 160px);
-}
+/* ── LAYOUT ── */
+.body { display: grid; grid-template-columns: 1fr 360px; min-height: calc(100vh - 200px); }
+.diag { padding: 1.75rem 1.75rem 2rem 2.5rem; border-right: 1px solid var(--rule); overflow-x: auto; }
+.hint { font-family: var(--sans); font-size: 11px; color: var(--ink4); margin-bottom: 1rem; }
 
-/* ── DIAGRAM AREA ── */
-.diagram-area {
-  padding: 2rem 2rem 2rem 2.5rem;
-  border-right: 1px solid var(--rule);
-  overflow-x: auto;
-}
-
-.diagram-hint {
-  font-family: var(--sans);
-  font-size: 11px;
-  color: var(--ink4);
-  margin-bottom: 1.25rem;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-/* ── SVG NODES ── */
-.n { cursor: pointer; transition: opacity 0.2s; }
-.n:hover { opacity: 0.82; }
-.n.dimmed { opacity: 0.18; }
-.n.highlighted rect, .n.highlighted circle { stroke-width: 2 !important; }
-.n.wildfire-relevant rect { stroke-dasharray: none !important; }
+/* ── SVG ── */
+.n { cursor: pointer; }
+.n rect, .n circle { transition: opacity 0.18s; }
+.n.dim rect, .n.dim circle { opacity: 0.12; }
+.n.dim text { opacity: 0.12; }
+.n.lit rect { stroke-width: 2 !important; }
 
 /* ── PANEL ── */
-.panel {
-  padding: 0;
-  overflow-y: auto;
-  max-height: calc(100vh - 160px);
-  position: sticky;
-  top: 0;
-}
-.panel-empty {
-  padding: 2.5rem 1.75rem;
-  color: var(--ink4);
+.panel { overflow-y: auto; max-height: calc(100vh - 200px); position: sticky; top: 0; }
+.p-empty {
+  padding: 2rem 1.75rem;
   font-family: var(--sans);
-  font-size: 12px;
-  line-height: 1.7;
-  border-left: none;
+  font-size: 13px;
+  color: var(--ink4);
+  line-height: 1.8;
 }
-.panel-empty .big-arrow {
-  font-size: 32px;
-  display: block;
-  margin-bottom: 1rem;
-  color: var(--rule);
-}
-.panel-content {
-  display: none;
-  padding: 1.75rem;
-}
-.panel-content.visible { display: block; }
+.p-empty .arr { font-size: 28px; display: block; margin-bottom: 1rem; color: var(--rule); }
+.p-empty strong { color: var(--ink3); font-weight: 500; display: block; margin-bottom: 0.5rem; font-family: var(--serif); font-size: 15px; }
+.p-content { display: none; padding: 1.5rem 1.75rem 2rem; }
+.p-content.show { display: block; }
 
-.panel-tag {
+.p-tag {
   font-family: var(--sans);
   font-size: 9px;
+  font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   padding: 3px 8px;
-  border-radius: 2px;
+  border-radius: 1px;
   display: inline-block;
-  margin-bottom: 1rem;
-  font-weight: 600;
+  margin-bottom: 0.9rem;
 }
-.panel-title {
+.p-close {
+  float: right;
   font-size: 20px;
+  color: var(--ink4);
+  cursor: pointer;
+  line-height: 1;
+  padding: 0 0 4px 8px;
+  transition: color 0.12s;
+}
+.p-close:hover { color: var(--ink); }
+.p-title {
+  font-size: 19px;
   font-weight: normal;
-  line-height: 1.25;
+  line-height: 1.2;
   color: var(--ink);
-  margin-bottom: 6px;
   border-bottom: 1px solid var(--rule);
   padding-bottom: 0.75rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
-.panel-authors {
+.p-authors {
   font-family: var(--sans);
   font-size: 11px;
   color: var(--ink4);
   font-style: italic;
   margin-bottom: 1.25rem;
 }
-.panel-section-label {
+.p-sl {
   font-family: var(--sans);
   font-size: 9px;
+  font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--ink4);
-  margin-bottom: 6px;
-  margin-top: 1.25rem;
   display: block;
+  margin: 1.1rem 0 0.4rem;
 }
-.panel-body {
+.p-body {
   font-family: var(--sans);
   font-size: 13px;
   color: var(--ink2);
-  line-height: 1.72;
+  line-height: 1.75;
 }
-.panel-contrib {
+.p-contrib {
   font-family: var(--sans);
   font-size: 13px;
   line-height: 1.7;
-  padding: 12px 14px;
+  padding: 11px 13px;
   border-left: 3px solid;
-  margin-top: 6px;
   color: var(--ink);
 }
-.panel-wildfire {
+.p-wf {
   font-family: var(--sans);
   font-size: 12px;
-  line-height: 1.65;
+  line-height: 1.7;
   padding: 10px 12px;
-  border-radius: 3px;
-  margin-top: 6px;
+  border-radius: 2px;
   display: none;
   color: var(--ink2);
+  margin-top: 0.25rem;
 }
-.panel-wildfire.show { display: block; }
+.p-wf.show { display: block; }
 
 /* papers */
-.papers-list {
-  list-style: none;
-  margin-top: 6px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.paper-item {
-  font-family: var(--sans);
-  font-size: 12px;
-  line-height: 1.5;
-}
-.paper-item a {
-  color: var(--ink);
-  text-decoration: none;
-  border-bottom: 1px solid var(--rule);
-  transition: border-color 0.15s;
-}
-.paper-item a:hover { border-color: var(--ink); }
-.paper-year {
-  font-size: 10px;
-  color: var(--ink4);
-  margin-left: 4px;
-}
-.paper-doi {
-  font-size: 10px;
-  color: var(--coral);
-  display: block;
-  margin-top: 2px;
-  word-break: break-all;
-  border-bottom: none !important;
-}
+.papers { list-style: none; margin-top: 0.4rem; display: flex; flex-direction: column; gap: 9px; }
+.pi { font-family: var(--sans); font-size: 12px; line-height: 1.5; }
+.pi a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule); transition: border-color 0.12s; }
+.pi a:hover { border-color: var(--ink); }
+.pi-year { font-size: 10px; color: var(--ink4); margin-left: 3px; }
+.pi-doi { font-size: 10px; color: var(--fire); display: block; margin-top: 2px; word-break: break-all; text-decoration: none; border: none !important; }
+.pi-doi:hover { text-decoration: underline; }
 
-/* related nodes */
-.related-nodes {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 6px;
-}
-.related-pill {
+/* related */
+.related { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 0.4rem; }
+.rp {
   font-family: var(--sans);
   font-size: 10px;
   padding: 3px 8px;
   border: 1px solid var(--rule);
-  border-radius: 2px;
+  border-radius: 1px;
   cursor: pointer;
   color: var(--ink3);
-  transition: all 0.15s;
+  transition: all 0.12s;
   background: var(--paper2);
 }
-.related-pill:hover { color: var(--ink); border-color: var(--ink3); }
+.rp:hover { color: var(--ink); border-color: var(--ink3); }
 
-/* close btn */
-.panel-close {
-  float: right;
-  font-family: var(--sans);
-  font-size: 18px;
-  color: var(--ink4);
-  cursor: pointer;
-  line-height: 1;
-  padding: 0 0 4px 8px;
-  transition: color 0.15s;
-}
-.panel-close:hover { color: var(--ink); }
+/* colour system */
+.t-fire   { background: var(--fire-bg);   color: var(--fire);   }
+.t-deep   { background: var(--deep-bg);   color: var(--deep);   }
+.t-forest { background: var(--forest-bg); color: var(--forest); }
+.t-gold   { background: var(--gold-bg);   color: var(--gold);   }
+.t-slate  { background: var(--slate-bg);  color: var(--slate);  }
+.c-fire   { background: var(--fire-bg);   border-color: var(--fire);   }
+.c-deep   { background: var(--deep-bg);   border-color: var(--deep);   }
+.c-forest { background: var(--forest-bg); border-color: var(--forest); }
+.c-gold   { background: var(--gold-bg);   border-color: var(--gold);   }
+.c-slate  { background: var(--slate-bg);  border-color: var(--slate);  }
+.w-fire   { background: var(--fire-bg); }
+.w-deep   { background: var(--deep-bg); }
+.w-forest { background: var(--forest-bg); }
+.w-gold   { background: var(--gold-bg); }
+.w-slate  { background: var(--slate-bg); }
 
-/* ── FOOTER ── */
-.footer {
+/* footer */
+.foot {
   border-top: 1px solid var(--rule);
-  padding: 1rem 2.5rem;
+  padding: 0.9rem 2.5rem;
   display: flex;
   justify-content: space-between;
   font-family: var(--sans);
@@ -405,699 +347,602 @@ body {
   flex-wrap: wrap;
   gap: 6px;
 }
-.footer a { color: var(--ink4); text-decoration: none; border-bottom: 1px solid var(--rule); }
-.footer a:hover { color: var(--ink); }
+.foot a { color: var(--ink4); text-decoration: none; border-bottom: 1px solid var(--rule); }
+.foot a:hover { color: var(--ink); }
 
-/* colour helpers */
-.tag-coral  { background: var(--coral-bg);  color: var(--coral);  }
-.tag-purple { background: var(--purple-bg); color: var(--purple); }
-.tag-teal   { background: var(--teal-bg);   color: var(--teal);   }
-.tag-amber  { background: var(--amber-bg);  color: var(--amber);  }
-.tag-slate  { background: var(--slate-bg);  color: var(--slate);  }
-.contrib-coral  { background: var(--coral-bg);  border-color: var(--coral);  }
-.contrib-purple { background: var(--purple-bg); border-color: var(--purple); }
-.contrib-teal   { background: var(--teal-bg);   border-color: var(--teal);   }
-.contrib-amber  { background: var(--amber-bg);  border-color: var(--amber);  }
-.contrib-slate  { background: var(--slate-bg);  border-color: var(--slate);  }
-.wf-coral  { background: var(--coral-bg); }
-.wf-purple { background: var(--purple-bg); }
-.wf-teal   { background: var(--teal-bg); }
-.wf-amber  { background: var(--amber-bg); }
-.wf-slate  { background: var(--slate-bg); }
-
-@media (max-width: 700px) {
-  .main { grid-template-columns: 1fr; }
+@media (max-width: 720px) {
+  .body { grid-template-columns: 1fr; }
   .panel { max-height: none; position: static; border-top: 1px solid var(--rule); }
-  .diagram-area { border-right: none; padding: 1rem; }
-  .masthead { grid-template-columns: 1fr; padding: 1.25rem; }
-  .masthead-right { text-align: left; }
-  .toolbar { padding: 0.75rem 1rem; }
+  .diag { border-right: none; padding: 1rem; }
+  .mast { padding: 1.25rem; }
+  .mast-stat { display: none; }
+  .bar { padding: 0.6rem 1rem; }
 }
 </style>
 </head>
 <body>
 
-<!-- MASTHEAD -->
-<header class="masthead">
-  <div class="masthead-left">
-    <p class="eyebrow">PhD Dissertation · Environmental Communication</p>
-    <h1>Cinematic Representation of the Climate Crisis and Wildfires</h1>
-    <p class="masthead-meta">Theoretical framework · Corpus-assisted discourse analysis of film dialogue<br>
-    <em>Environmental Communication / Science Communication</em></p>
+<header class="mast">
+  <div class="mast-top">
+    <div>
+      <p class="mast-eye">PhD Dissertation · Environmental Communication · Work in progress</p>
+      <h1>Wildfire on screen.<br><em>Who's talking about it?</em></h1>
+    </div>
+    <div class="mast-stat">
+      <span class="stat-n">2.8%</span>
+      <span class="stat-label">of 37,453 scripts mention<br>any climate keyword at all<br><span style="color:var(--fire);font-size:11px">— Lear Center, 2022</span></span>
+    </div>
   </div>
-  <div class="masthead-right">
-    <span class="issue-label">Theoretical strands</span>
-    <span class="issue-num">10</span>
+  <div class="mast-bottom">
+    <p class="mast-fact">Only <strong>0.6%</strong> of scripted TV and film mentioned "climate change" between 2016 and 2020. Wildfire barely registers at all.</p>
+    <p class="mast-fact">This research asks: when films do depict wildfire, <strong>how do they talk about it?</strong> What frames, whose voices, what emotional register?</p>
+    <p class="mast-fact">Ten theoretical strands — click any node to find out what each one does and why it matters.</p>
   </div>
 </header>
 
-<!-- TOOLBAR -->
-<div class="toolbar">
-  <span class="toolbar-label">Filter</span>
-
-  <div class="search-wrap">
-    <span class="search-icon">⌕</span>
-    <input type="text" id="search-input" placeholder="Search nodes…" oninput="doSearch(this.value)">
+<div class="bar">
+  <span class="bar-label">Filter</span>
+  <div class="srch">
+    <span class="srch-icon">⌕</span>
+    <input type="text" placeholder="Search…" oninput="doSearch(this.value)">
   </div>
-
-  <div class="filter-group">
-    <button class="filter-btn active" onclick="setFilter('all', this)">All</button>
-    <button class="filter-btn" onclick="setFilter('method', this)">Method</button>
-    <button class="filter-btn" onclick="setFilter('core', this)">Core theories</button>
-    <button class="filter-btn" onclick="setFilter('operationalisation', this)">Operationalisation</button>
-    <button class="filter-btn" onclick="setFilter('support', this)">Supporting</button>
-    <button class="filter-btn" onclick="setFilter('output', this)">Output</button>
+  <div class="filters">
+    <button class="fb on"  onclick="setF('all',this)">All</button>
+    <button class="fb" onclick="setF('method',this)">Method</button>
+    <button class="fb" onclick="setF('core',this)">Core theories</button>
+    <button class="fb" onclick="setF('op',this)">Operationalisation</button>
+    <button class="fb" onclick="setF('support',this)">Supporting</button>
+    <button class="fb" onclick="setF('output',this)">Output</button>
   </div>
-
-  <label class="wildfire-toggle" onclick="toggleWildfire()">
-    <span class="toggle-track" id="wf-track"><span class="toggle-thumb"></span></span>
+  <label class="wftog" onclick="toggleWF()">
+    <span class="trk" id="wftrk"><span class="thu"></span></span>
     Wildfire lens
   </label>
 </div>
 
-<!-- MAIN -->
-<div class="main">
-  <!-- DIAGRAM -->
-  <div class="diagram-area">
-    <p class="diagram-hint">↖ Click any node to explore · hover to see connections</p>
-
-    <svg id="fw-svg" viewBox="0 0 640 800" width="100%" style="max-width:680px">
+<div class="body">
+  <div class="diag">
+    <p class="hint">Click any node to explore · hover to see connections</p>
+    <svg id="svg" viewBox="0 0 640 800" width="100%" style="max-width:660px">
       <defs>
-        <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-          <path d="M2 1.5L8 5L2 8.5" fill="none" stroke="#a8a6a0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+          <path d="M2 1.5L8 5L2 8.5" fill="none" stroke="#c8c4bc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </marker>
       </defs>
 
       <!-- connectors -->
-      <g id="connectors" stroke="#d4cfc5" stroke-width="0.7" fill="none">
-        <line id="c-corpus-cads" x1="320" y1="62" x2="320" y2="100"/>
-        <path id="c-cads-framing"   d="M270 152 L270 184 L82 184 L82 224"/>
-        <path id="c-cads-cda"       d="M300 152 L300 184 L202 184 L202 224"/>
-        <line id="c-cads-narrative" x1="320" y1="152" x2="320" y2="224"/>
-        <path id="c-cads-affect"    d="M340 152 L340 184 L438 184 L438 224"/>
-        <path id="c-cads-clt"       d="M370 152 L370 184 L558 184 L558 224"/>
-        <line id="c-framing-fop"   x1="82"  y1="276" x2="82"  y2="320"/>
-        <line id="c-cda-vop"       x1="202" y1="276" x2="202" y2="320"/>
-        <line id="c-narrative-gop" x1="320" y1="276" x2="320" y2="320"/>
-        <line id="c-affect-eop"    x1="438" y1="276" x2="438" y2="320"/>
-        <line id="c-clt-dop"       x1="558" y1="276" x2="558" y2="320"/>
-        <path id="c-fop-synth"  d="M82  372 L82  450 L214 450"/>
-        <path id="c-vop-synth"  d="M202 372 L202 432 L214 432 L214 450"/>
-        <line id="c-gop-synth"  x1="320" y1="372" x2="320" y2="450"/>
-        <path id="c-eop-synth"  d="M438 372 L438 432 L426 432 L426 450"/>
-        <path id="c-dop-synth"  d="M558 372 L558 450 L426 450"/>
-        <line id="c-agency-synth" x1="148" y1="476" x2="212" y2="476"/>
-        <line id="c-pus-synth"    x1="148" y1="512" x2="212" y2="512"/>
-        <line id="c-cult-synth"   x1="148" y1="548" x2="212" y2="548"/>
-        <line id="c-clifi-synth"  x1="492" y1="476" x2="428" y2="476"/>
-        <line id="c-gap-clifi"    x1="542" y1="524" x2="542" y2="508"/>
-        <line id="c-gap-synth"    x1="492" y1="524" x2="428" y2="524"/>
-        <line id="c-synth-out"    x1="320" y1="616" x2="320" y2="660"/>
+      <g stroke="#d4cfc5" stroke-width="0.65" fill="none">
+        <line x1="320" y1="62" x2="320" y2="99" marker-end="url(#a)"/>
+        <path d="M270 152 L270 184 L82 184 L82 223" marker-end="url(#a)"/>
+        <path d="M300 152 L300 184 L202 184 L202 223" marker-end="url(#a)"/>
+        <line x1="320" y1="152" x2="320" y2="223" marker-end="url(#a)"/>
+        <path d="M340 152 L340 184 L438 184 L438 223" marker-end="url(#a)"/>
+        <path d="M370 152 L370 184 L558 184 L558 223" marker-end="url(#a)"/>
+        <line x1="82"  y1="276" x2="82"  y2="319" marker-end="url(#a)"/>
+        <line x1="202" y1="276" x2="202" y2="319" marker-end="url(#a)"/>
+        <line x1="320" y1="276" x2="320" y2="319" marker-end="url(#a)"/>
+        <line x1="438" y1="276" x2="438" y2="319" marker-end="url(#a)"/>
+        <line x1="558" y1="276" x2="558" y2="319" marker-end="url(#a)"/>
+        <path d="M82  372 L82  450 L213 450" marker-end="url(#a)"/>
+        <path d="M202 372 L202 433 L213 433" marker-end="url(#a)"/>
+        <line x1="320" y1="372" x2="320" y2="441" marker-end="url(#a)"/>
+        <path d="M438 372 L438 433 L427 433" marker-end="url(#a)"/>
+        <path d="M558 372 L558 450 L427 450" marker-end="url(#a)"/>
+        <line x1="148" y1="476" x2="213" y2="476" marker-end="url(#a)"/>
+        <line x1="148" y1="512" x2="213" y2="512" marker-end="url(#a)"/>
+        <line x1="148" y1="548" x2="213" y2="548" marker-end="url(#a)"/>
+        <line x1="492" y1="476" x2="429" y2="476" marker-end="url(#a)"/>
+        <line x1="553" y1="506" x2="553" y2="495" marker-end="url(#a)"/>
+        <line x1="492" y1="524" x2="429" y2="524" marker-end="url(#a)"/>
+        <line x1="320" y1="616" x2="320" y2="659" marker-end="url(#a)"/>
       </g>
 
-      <!-- TIER 0: corpus -->
-      <g id="n-corpus" class="n" data-cat="output" data-label="Film corpus" onclick="show('corpus')" onmouseenter="hoverIn('corpus')" onmouseleave="hoverOut()">
-        <rect x="180" y="16" width="280" height="46" rx="3" fill="#faeae3" stroke="#c94a1f" stroke-width="1"/>
-        <text x="320" y="34" text-anchor="middle" font-family="Georgia,serif" font-size="13" font-weight="bold" fill="#7a2a0f">Film corpus</text>
-        <text x="320" y="50" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="10" fill="#a04020">Wildfire + climate cinema subtitles</text>
+      <!-- corpus -->
+      <g id="n-corpus" class="n" data-cat="output" onclick="show('corpus')" onmouseenter="hin('corpus')" onmouseleave="hout()">
+        <rect x="180" y="16" width="280" height="46" rx="2" fill="#faeae3" stroke="#c94a1f" stroke-width="1"/>
+        <text x="320" y="35" text-anchor="middle" font-family="Georgia,serif" font-size="13" font-weight="bold" fill="#7a2a0f">Film corpus</text>
+        <text x="320" y="51" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="10" fill="#a04020">Wildfire + climate cinema subtitles</text>
       </g>
 
-      <!-- TIER 1: method -->
-      <g id="n-cads" class="n" data-cat="method" data-label="CADS method" onclick="show('cads')" onmouseenter="hoverIn('cads')" onmouseleave="hoverOut()">
-        <rect x="190" y="100" width="260" height="52" rx="3" fill="#eeedf8" stroke="#5a4fcf" stroke-width="1"/>
-        <text x="320" y="121" text-anchor="middle" font-family="Georgia,serif" font-size="13" font-weight="bold" fill="#2e2880">CADS method</text>
-        <text x="320" y="139" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="10" fill="#4a40a0">Keyword · collocation · concordance</text>
+      <!-- cads -->
+      <g id="n-cads" class="n" data-cat="method" onclick="show('cads')" onmouseenter="hin('cads')" onmouseleave="hout()">
+        <rect x="190" y="100" width="260" height="52" rx="2" fill="#e6eef4" stroke="#1a3a5c" stroke-width="1"/>
+        <text x="320" y="121" text-anchor="middle" font-family="Georgia,serif" font-size="13" font-weight="bold" fill="#0d2035">CADS method</text>
+        <text x="320" y="139" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="10" fill="#1a3a5c">Keyword · collocation · concordance</text>
       </g>
 
-      <!-- TIER 2: 5 core theories -->
-      <g id="n-framing" class="n" data-cat="core" data-label="Framing theory" onclick="show('framing')" onmouseenter="hoverIn('framing')" onmouseleave="hoverOut()">
-        <rect x="26" y="224" width="112" height="52" rx="3" fill="#e2f5ee" stroke="#0f7a5a" stroke-width="1"/>
-        <text x="82" y="245" text-anchor="middle" font-family="Georgia,serif" font-size="12" font-weight="bold" fill="#064a36">Framing</text>
-        <text x="82" y="261" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="9.5" fill="#0a5a40">Entman; Nisbet</text>
+      <!-- core theories -->
+      <g id="n-framing" class="n" data-cat="core" onclick="show('framing')" onmouseenter="hin('framing')" onmouseleave="hout()">
+        <rect x="26" y="224" width="112" height="52" rx="2" fill="#e2f4ec" stroke="#0f6a40" stroke-width="1"/>
+        <text x="82" y="245" text-anchor="middle" font-family="Georgia,serif" font-size="12" font-weight="bold" fill="#06401e">Framing</text>
+        <text x="82" y="261" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="9.5" fill="#0f5a30">Entman; Nisbet</text>
       </g>
-      <g id="n-cda" class="n" data-cat="core" data-label="Critical discourse analysis" onclick="show('cda')" onmouseenter="hoverIn('cda')" onmouseleave="hoverOut()">
-        <rect x="146" y="224" width="112" height="52" rx="3" fill="#e2f5ee" stroke="#0f7a5a" stroke-width="1"/>
-        <text x="202" y="245" text-anchor="middle" font-family="Georgia,serif" font-size="12" font-weight="bold" fill="#064a36">CDA</text>
-        <text x="202" y="261" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="9.5" fill="#0a5a40">Fairclough; van Dijk</text>
+      <g id="n-cda" class="n" data-cat="core" onclick="show('cda')" onmouseenter="hin('cda')" onmouseleave="hout()">
+        <rect x="146" y="224" width="112" height="52" rx="2" fill="#e2f4ec" stroke="#0f6a40" stroke-width="1"/>
+        <text x="202" y="245" text-anchor="middle" font-family="Georgia,serif" font-size="12" font-weight="bold" fill="#06401e">CDA</text>
+        <text x="202" y="261" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="9.5" fill="#0f5a30">Fairclough; van Dijk</text>
       </g>
-      <g id="n-narrative" class="n" data-cat="core" data-label="Narrative theory" onclick="show('narrative')" onmouseenter="hoverIn('narrative')" onmouseleave="hoverOut()">
-        <rect x="264" y="224" width="112" height="52" rx="3" fill="#e2f5ee" stroke="#0f7a5a" stroke-width="1"/>
-        <text x="320" y="245" text-anchor="middle" font-family="Georgia,serif" font-size="12" font-weight="bold" fill="#064a36">Narrative</text>
-        <text x="320" y="261" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="9.5" fill="#0a5a40">Green &amp; Brock</text>
+      <g id="n-narrative" class="n" data-cat="core" onclick="show('narrative')" onmouseenter="hin('narrative')" onmouseleave="hout()">
+        <rect x="264" y="224" width="112" height="52" rx="2" fill="#e2f4ec" stroke="#0f6a40" stroke-width="1"/>
+        <text x="320" y="245" text-anchor="middle" font-family="Georgia,serif" font-size="12" font-weight="bold" fill="#06401e">Narrative</text>
+        <text x="320" y="261" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="9.5" fill="#0f5a30">Green &amp; Brock</text>
       </g>
-      <g id="n-affect" class="n" data-cat="core" data-label="Affect theory" onclick="show('affect')" onmouseenter="hoverIn('affect')" onmouseleave="hoverOut()">
-        <rect x="382" y="224" width="112" height="52" rx="3" fill="#e2f5ee" stroke="#0f7a5a" stroke-width="1"/>
-        <text x="438" y="245" text-anchor="middle" font-family="Georgia,serif" font-size="12" font-weight="bold" fill="#064a36">Affect</text>
-        <text x="438" y="261" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="9.5" fill="#0a5a40">O'Neill; Nabi</text>
+      <g id="n-affect" class="n" data-cat="core" onclick="show('affect')" onmouseenter="hin('affect')" onmouseleave="hout()">
+        <rect x="382" y="224" width="112" height="52" rx="2" fill="#e2f4ec" stroke="#0f6a40" stroke-width="1"/>
+        <text x="438" y="245" text-anchor="middle" font-family="Georgia,serif" font-size="12" font-weight="bold" fill="#06401e">Affect</text>
+        <text x="438" y="261" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="9.5" fill="#0f5a30">O'Neill; Nabi</text>
       </g>
-      <g id="n-clt" class="n" data-cat="core" data-label="Construal level theory" onclick="show('clt')" onmouseenter="hoverIn('clt')" onmouseleave="hoverOut()">
-        <rect x="502" y="224" width="112" height="52" rx="3" fill="#e2f5ee" stroke="#0f7a5a" stroke-width="1"/>
-        <text x="558" y="245" text-anchor="middle" font-family="Georgia,serif" font-size="12" font-weight="bold" fill="#064a36">CLT</text>
-        <text x="558" y="261" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="9.5" fill="#0a5a40">Trope &amp; Liberman</text>
+      <g id="n-clt" class="n" data-cat="core" onclick="show('clt')" onmouseenter="hin('clt')" onmouseleave="hout()">
+        <rect x="502" y="224" width="112" height="52" rx="2" fill="#e2f4ec" stroke="#0f6a40" stroke-width="1"/>
+        <text x="558" y="245" text-anchor="middle" font-family="Georgia,serif" font-size="12" font-weight="bold" fill="#06401e">CLT</text>
+        <text x="558" y="261" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="9.5" fill="#0f5a30">Trope &amp; Liberman</text>
       </g>
 
-      <!-- TIER 3: operationalisation -->
-      <g id="n-frames-op" class="n" data-cat="operationalisation" data-label="Frame coding" onclick="show('frames-op')" onmouseenter="hoverIn('frames-op')" onmouseleave="hoverOut()">
-        <rect x="26" y="320" width="112" height="52" rx="3" fill="#fdf0dc" stroke="#a85f0a" stroke-width="1"/>
-        <text x="82" y="341" text-anchor="middle" font-family="Georgia,serif" font-size="12" font-weight="bold" fill="#6a3a05">Frame coding</text>
-        <text x="82" y="357" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="9.5" fill="#8a4e08">8 Nisbet types</text>
+      <!-- operationalisation -->
+      <g id="n-frames-op" class="n" data-cat="op" onclick="show('frames-op')" onmouseenter="hin('frames-op')" onmouseleave="hout()">
+        <rect x="26" y="320" width="112" height="52" rx="2" fill="#fdf0dc" stroke="#96540a" stroke-width="1"/>
+        <text x="82" y="341" text-anchor="middle" font-family="Georgia,serif" font-size="12" font-weight="bold" fill="#5a3006">Frame coding</text>
+        <text x="82" y="357" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="9.5" fill="#7a4208">8 Nisbet types</text>
       </g>
-      <g id="n-voice-op" class="n" data-cat="operationalisation" data-label="Voice and power" onclick="show('voice-op')" onmouseenter="hoverIn('voice-op')" onmouseleave="hoverOut()">
-        <rect x="146" y="320" width="112" height="52" rx="3" fill="#fdf0dc" stroke="#a85f0a" stroke-width="1"/>
-        <text x="202" y="341" text-anchor="middle" font-family="Georgia,serif" font-size="12" font-weight="bold" fill="#6a3a05">Voice &amp; power</text>
-        <text x="202" y="357" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="9.5" fill="#8a4e08">Agency, legitimation</text>
+      <g id="n-voice-op" class="n" data-cat="op" onclick="show('voice-op')" onmouseenter="hin('voice-op')" onmouseleave="hout()">
+        <rect x="146" y="320" width="112" height="52" rx="2" fill="#fdf0dc" stroke="#96540a" stroke-width="1"/>
+        <text x="202" y="341" text-anchor="middle" font-family="Georgia,serif" font-size="12" font-weight="bold" fill="#5a3006">Voice &amp; power</text>
+        <text x="202" y="357" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="9.5" fill="#7a4208">Agency · legitimation</text>
       </g>
-      <g id="n-genre-op" class="n" data-cat="operationalisation" data-label="Genre variable" onclick="show('genre-op')" onmouseenter="hoverIn('genre-op')" onmouseleave="hoverOut()">
-        <rect x="264" y="320" width="112" height="52" rx="3" fill="#fdf0dc" stroke="#a85f0a" stroke-width="1"/>
-        <text x="320" y="341" text-anchor="middle" font-family="Georgia,serif" font-size="12" font-weight="bold" fill="#6a3a05">Genre variable</text>
-        <text x="320" y="357" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="9.5" fill="#8a4e08">Disaster · sci-fi · doc</text>
+      <g id="n-genre-op" class="n" data-cat="op" onclick="show('genre-op')" onmouseenter="hin('genre-op')" onmouseleave="hout()">
+        <rect x="264" y="320" width="112" height="52" rx="2" fill="#fdf0dc" stroke="#96540a" stroke-width="1"/>
+        <text x="320" y="341" text-anchor="middle" font-family="Georgia,serif" font-size="12" font-weight="bold" fill="#5a3006">Genre variable</text>
+        <text x="320" y="357" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="9.5" fill="#7a4208">Disaster · sci-fi · doc</text>
       </g>
-      <g id="n-emotion-op" class="n" data-cat="operationalisation" data-label="Emotion lexicon" onclick="show('emotion-op')" onmouseenter="hoverIn('emotion-op')" onmouseleave="hoverOut()">
-        <rect x="382" y="320" width="112" height="52" rx="3" fill="#fdf0dc" stroke="#a85f0a" stroke-width="1"/>
-        <text x="438" y="341" text-anchor="middle" font-family="Georgia,serif" font-size="12" font-weight="bold" fill="#6a3a05">Emotion lexis</text>
-        <text x="438" y="357" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="9.5" fill="#8a4e08">Fear · hope · grief</text>
+      <g id="n-emotion-op" class="n" data-cat="op" onclick="show('emotion-op')" onmouseenter="hin('emotion-op')" onmouseleave="hout()">
+        <rect x="382" y="320" width="112" height="52" rx="2" fill="#fdf0dc" stroke="#96540a" stroke-width="1"/>
+        <text x="438" y="341" text-anchor="middle" font-family="Georgia,serif" font-size="12" font-weight="bold" fill="#5a3006">Emotion lexis</text>
+        <text x="438" y="357" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="9.5" fill="#7a4208">Fear · hope · grief</text>
       </g>
-      <g id="n-distance-op" class="n" data-cat="operationalisation" data-label="Distance markers" onclick="show('distance-op')" onmouseenter="hoverIn('distance-op')" onmouseleave="hoverOut()">
-        <rect x="502" y="320" width="112" height="52" rx="3" fill="#fdf0dc" stroke="#a85f0a" stroke-width="1"/>
-        <text x="558" y="341" text-anchor="middle" font-family="Georgia,serif" font-size="12" font-weight="bold" fill="#6a3a05">Distance markers</text>
-        <text x="558" y="357" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="9.5" fill="#8a4e08">Temporal · spatial</text>
+      <g id="n-distance-op" class="n" data-cat="op" onclick="show('distance-op')" onmouseenter="hin('distance-op')" onmouseleave="hout()">
+        <rect x="502" y="320" width="112" height="52" rx="2" fill="#fdf0dc" stroke="#96540a" stroke-width="1"/>
+        <text x="558" y="341" text-anchor="middle" font-family="Georgia,serif" font-size="12" font-weight="bold" fill="#5a3006">Distance markers</text>
+        <text x="558" y="357" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="9.5" fill="#7a4208">Temporal · spatial</text>
       </g>
 
       <!-- support left -->
-      <g id="n-agency" class="n" data-cat="support" data-label="Agency framing" onclick="show('agency')" onmouseenter="hoverIn('agency')" onmouseleave="hoverOut()">
-        <rect x="26" y="458" width="122" height="36" rx="3" fill="#e8eff4" stroke="#3d5a72" stroke-width="1"/>
+      <g id="n-agency" class="n" data-cat="support" onclick="show('agency')" onmouseenter="hin('agency')" onmouseleave="hout()">
+        <rect x="26" y="458" width="122" height="36" rx="2" fill="#e8eff4" stroke="#3d5a72" stroke-width="1"/>
         <text x="87" y="471" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="bold" fill="#1e3448">Agency framing</text>
         <text x="87" y="485" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="9" fill="#2e4a62">Maniates 2001</text>
       </g>
-      <g id="n-pus" class="n" data-cat="support" data-label="Public understanding of science" onclick="show('pus')" onmouseenter="hoverIn('pus')" onmouseleave="hoverOut()">
-        <rect x="26" y="494" width="122" height="36" rx="3" fill="#e8eff4" stroke="#3d5a72" stroke-width="1"/>
+      <g id="n-pus" class="n" data-cat="support" onclick="show('pus')" onmouseenter="hin('pus')" onmouseleave="hout()">
+        <rect x="26" y="494" width="122" height="36" rx="2" fill="#e8eff4" stroke="#3d5a72" stroke-width="1"/>
         <text x="87" y="507" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="bold" fill="#1e3448">PUS model</text>
         <text x="87" y="521" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="9" fill="#2e4a62">Wynne; Bucchi</text>
       </g>
-      <g id="n-cultivation" class="n" data-cat="support" data-label="Cultivation theory" onclick="show('cultivation')" onmouseenter="hoverIn('cultivation')" onmouseleave="hoverOut()">
-        <rect x="26" y="530" width="122" height="36" rx="3" fill="#e8eff4" stroke="#3d5a72" stroke-width="1"/>
+      <g id="n-cultivation" class="n" data-cat="support" onclick="show('cultivation')" onmouseenter="hin('cultivation')" onmouseleave="hout()">
+        <rect x="26" y="530" width="122" height="36" rx="2" fill="#e8eff4" stroke="#3d5a72" stroke-width="1"/>
         <text x="87" y="543" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="bold" fill="#1e3448">Cultivation</text>
         <text x="87" y="557" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="9" fill="#2e4a62">Gerbner 1976</text>
       </g>
 
       <!-- support right -->
-      <g id="n-clifi" class="n" data-cat="support" data-label="Cli-fi studies" onclick="show('clifi')" onmouseenter="hoverIn('clifi')" onmouseleave="hoverOut()">
-        <rect x="492" y="458" width="122" height="36" rx="3" fill="#e8eff4" stroke="#3d5a72" stroke-width="1"/>
+      <g id="n-clifi" class="n" data-cat="support" onclick="show('clifi')" onmouseenter="hin('clifi')" onmouseleave="hout()">
+        <rect x="492" y="458" width="122" height="36" rx="2" fill="#e8eff4" stroke="#3d5a72" stroke-width="1"/>
         <text x="553" y="471" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="bold" fill="#1e3448">Cli-fi studies</text>
         <text x="553" y="485" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="9" fill="#2e4a62">Svoboda; Salmose</text>
       </g>
-      <g id="n-gap" class="n" data-cat="output" data-label="Research gap" onclick="show('gap')" onmouseenter="hoverIn('gap')" onmouseleave="hoverOut()">
-        <rect x="492" y="506" width="122" height="36" rx="3" fill="#faeae3" stroke="#c94a1f" stroke-width="1"/>
+      <g id="n-gap" class="n" data-cat="output" onclick="show('gap')" onmouseenter="hin('gap')" onmouseleave="hout()">
+        <rect x="492" y="506" width="122" height="36" rx="2" fill="#faeae3" stroke="#c94a1f" stroke-width="1"/>
         <text x="553" y="519" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="bold" fill="#7a2a0f">Research gap</text>
         <text x="553" y="533" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="9" fill="#a04020">No wildfire cinema studies</text>
       </g>
 
-      <!-- SYNTHESIS -->
-      <g id="n-synthesis" class="n" data-cat="method" data-label="Integrated analysis" onclick="show('synthesis')" onmouseenter="hoverIn('synthesis')" onmouseleave="hoverOut()">
-        <rect x="214" y="442" width="214" height="174" rx="3" fill="#eeedf8" stroke="#5a4fcf" stroke-width="1.2"/>
-        <text x="321" y="464" text-anchor="middle" font-family="Georgia,serif" font-size="13" font-weight="bold" fill="#2e2880">Integrated analysis</text>
-        <line x1="228" y1="472" x2="414" y2="472" stroke="#c8c6f0" stroke-width="0.6"/>
-        <text x="228" y="489" font-family="Helvetica Neue,Arial,sans-serif" font-size="10" fill="#4a40a0">→ Dominant climate frames</text>
-        <text x="228" y="507" font-family="Helvetica Neue,Arial,sans-serif" font-size="10" fill="#4a40a0">→ Who speaks / is silenced</text>
-        <text x="228" y="525" font-family="Helvetica Neue,Arial,sans-serif" font-size="10" fill="#4a40a0">→ Genre comparisons</text>
-        <text x="228" y="543" font-family="Helvetica Neue,Arial,sans-serif" font-size="10" fill="#4a40a0">→ Emotional register</text>
-        <text x="228" y="561" font-family="Helvetica Neue,Arial,sans-serif" font-size="10" fill="#4a40a0">→ Psychological distance</text>
-        <text x="228" y="579" font-family="Helvetica Neue,Arial,sans-serif" font-size="10" fill="#4a40a0">→ Individual vs systemic agency</text>
-        <text x="228" y="597" font-family="Helvetica Neue,Arial,sans-serif" font-size="10" fill="#4a40a0">→ Cumulative message system</text>
+      <!-- synthesis -->
+      <g id="n-synthesis" class="n" data-cat="method" onclick="show('synthesis')" onmouseenter="hin('synthesis')" onmouseleave="hout()">
+        <rect x="214" y="442" width="214" height="174" rx="2" fill="#e6eef4" stroke="#1a3a5c" stroke-width="1.2"/>
+        <text x="321" y="464" text-anchor="middle" font-family="Georgia,serif" font-size="13" font-weight="bold" fill="#0d2035">Integrated analysis</text>
+        <line x1="228" y1="472" x2="414" y2="472" stroke="#b0bfc8" stroke-width="0.5"/>
+        <text x="228" y="489" font-family="Helvetica Neue,Arial,sans-serif" font-size="10" fill="#1a3a5c">→ Dominant climate frames</text>
+        <text x="228" y="507" font-family="Helvetica Neue,Arial,sans-serif" font-size="10" fill="#1a3a5c">→ Who speaks / is silenced</text>
+        <text x="228" y="525" font-family="Helvetica Neue,Arial,sans-serif" font-size="10" fill="#1a3a5c">→ Genre comparisons</text>
+        <text x="228" y="543" font-family="Helvetica Neue,Arial,sans-serif" font-size="10" fill="#1a3a5c">→ Emotional register</text>
+        <text x="228" y="561" font-family="Helvetica Neue,Arial,sans-serif" font-size="10" fill="#1a3a5c">→ Psychological distance</text>
+        <text x="228" y="579" font-family="Helvetica Neue,Arial,sans-serif" font-size="10" fill="#1a3a5c">→ Individual vs systemic agency</text>
+        <text x="228" y="597" font-family="Helvetica Neue,Arial,sans-serif" font-size="10" fill="#1a3a5c">→ Cumulative message system</text>
       </g>
 
-      <!-- OUTPUT -->
-      <g id="n-contribution" class="n" data-cat="output" data-label="Research contribution" onclick="show('contribution')" onmouseenter="hoverIn('contribution')" onmouseleave="hoverOut()">
-        <rect x="152" y="660" width="336" height="50" rx="3" fill="#faeae3" stroke="#c94a1f" stroke-width="1.5"/>
+      <!-- contribution -->
+      <g id="n-contribution" class="n" data-cat="output" onclick="show('contribution')" onmouseenter="hin('contribution')" onmouseleave="hout()">
+        <rect x="152" y="660" width="336" height="50" rx="2" fill="#faeae3" stroke="#c94a1f" stroke-width="1.5"/>
         <text x="320" y="681" text-anchor="middle" font-family="Georgia,serif" font-size="13" font-weight="bold" fill="#7a2a0f">Research contribution</text>
         <text x="320" y="699" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="10" fill="#a04020">First corpus-based analysis of wildfire film dialogue</text>
       </g>
 
-      <!-- connector arrows -->
-      <g stroke="#d4cfc5" stroke-width="0.7" fill="none">
-        <line x1="320" y1="62" x2="320" y2="99" marker-end="url(#arr)"/>
-        <path d="M270 152 L270 184 L82 184 L82 223" marker-end="url(#arr)"/>
-        <path d="M300 152 L300 184 L202 184 L202 223" marker-end="url(#arr)"/>
-        <line x1="320" y1="152" x2="320" y2="223" marker-end="url(#arr)"/>
-        <path d="M340 152 L340 184 L438 184 L438 223" marker-end="url(#arr)"/>
-        <path d="M370 152 L370 184 L558 184 L558 223" marker-end="url(#arr)"/>
-        <line x1="82"  y1="276" x2="82"  y2="319" marker-end="url(#arr)"/>
-        <line x1="202" y1="276" x2="202" y2="319" marker-end="url(#arr)"/>
-        <line x1="320" y1="276" x2="320" y2="319" marker-end="url(#arr)"/>
-        <line x1="438" y1="276" x2="438" y2="319" marker-end="url(#arr)"/>
-        <line x1="558" y1="276" x2="558" y2="319" marker-end="url(#arr)"/>
-        <path d="M82  372 L82  450 L213 450" marker-end="url(#arr)"/>
-        <path d="M202 372 L202 433 L213 433" marker-end="url(#arr)"/>
-        <line x1="320" y1="372" x2="320" y2="441" marker-end="url(#arr)"/>
-        <path d="M438 372 L438 433 L427 433" marker-end="url(#arr)"/>
-        <path d="M558 372 L558 450 L427 450" marker-end="url(#arr)"/>
-        <line x1="148" y1="476" x2="213" y2="476" marker-end="url(#arr)"/>
-        <line x1="148" y1="512" x2="213" y2="512" marker-end="url(#arr)"/>
-        <line x1="148" y1="548" x2="213" y2="548" marker-end="url(#arr)"/>
-        <line x1="492" y1="476" x2="429" y2="476" marker-end="url(#arr)"/>
-        <line x1="553" y1="506" x2="553" y2="495" marker-end="url(#arr)"/>
-        <line x1="492" y1="524" x2="429" y2="524" marker-end="url(#arr)"/>
-        <line x1="320" y1="616" x2="320" y2="659" marker-end="url(#arr)"/>
-      </g>
-
-      <!-- wildfire indicators (hidden until toggle) -->
-      <g id="wf-indicators" opacity="0" style="transition:opacity 0.4s">
-        <circle cx="461" cy="224" r="5" fill="#c94a1f" opacity="0.85"/>
-        <circle cx="136" cy="224" r="5" fill="#c94a1f" opacity="0.85"/>
-        <circle cx="254" cy="224" r="5" fill="#c94a1f" opacity="0.85"/>
-        <circle cx="374" cy="224" r="5" fill="#c94a1f" opacity="0.85"/>
-        <circle cx="580" cy="224" r="5" fill="#c94a1f" opacity="0.85"/>
-        <circle cx="136" cy="320" r="5" fill="#c94a1f" opacity="0.85"/>
-        <circle cx="374" cy="320" r="5" fill="#c94a1f" opacity="0.85"/>
-        <circle cx="580" cy="320" r="5" fill="#c94a1f" opacity="0.85"/>
-        <circle cx="553" cy="506" r="5" fill="#c94a1f" opacity="0.85"/>
+      <!-- wildfire dots -->
+      <g id="wfdots" opacity="0" style="transition:opacity 0.35s">
+        <circle cx="461" cy="224" r="5" fill="#c94a1f"/><circle cx="136" cy="224" r="5" fill="#c94a1f"/>
+        <circle cx="254" cy="224" r="5" fill="#c94a1f"/><circle cx="374" cy="224" r="5" fill="#c94a1f"/>
+        <circle cx="580" cy="224" r="5" fill="#c94a1f"/><circle cx="136" cy="320" r="5" fill="#c94a1f"/>
+        <circle cx="374" cy="320" r="5" fill="#c94a1f"/><circle cx="580" cy="320" r="5" fill="#c94a1f"/>
+        <circle cx="553" cy="506" r="5" fill="#c94a1f"/>
       </g>
     </svg>
   </div>
 
-  <!-- PANEL -->
   <div class="panel" id="panel">
-    <div class="panel-empty" id="panel-empty">
-      <span class="big-arrow">←</span>
-      <strong style="display:block;margin-bottom:8px;font-size:14px;font-family:Georgia,serif">Explore the framework</strong>
-      Click any node in the diagram to read its full explanation, contribution to the paper, and links to the key papers with DOIs.
+    <div class="p-empty" id="pempty">
+      <span class="arr">←</span>
+      <strong>What does this research actually do?</strong>
+      Click any node. Each one explains the theory, what it contributes to the paper, and links to the key papers — with DOIs for institutional access.
       <br><br>
-      Use the <strong>Wildfire lens</strong> toggle to highlight nodes with direct relevance to wildfire cinema specifically.
-      <br><br>
-      Use <strong>Filter</strong> to isolate a layer of the framework.
+      Turn on the <strong>Wildfire lens</strong> to see which nodes connect most directly to wildfire cinema specifically.
     </div>
-    <div class="panel-content" id="panel-content"></div>
+    <div class="p-content" id="pcontent"></div>
   </div>
 </div>
 
-<footer class="footer">
-  <span>irinou · PhD dissertation · Work in progress</span>
+<footer class="foot">
+  <span>irinou · PhD dissertation · Environmental Communication</span>
   <span><a href="https://github.com/irinou/wildfire-cinema" target="_blank">github.com/irinou/wildfire-cinema</a></span>
   <span>Code: MIT · Content: CC BY 4.0</span>
 </footer>
 
 <script>
-const DATA = {
-  corpus: {
-    tag:'Research object', tagClass:'tag-coral', contribClass:'contrib-coral', wfClass:'wf-coral',
-    related:['cads','gap'],
-    title:'Film corpus',
+const D = {
+  corpus:{
+    tag:'Research object',tc:'t-fire',cc:'c-fire',wc:'w-fire',
+    rel:['cads','gap'],
+    title:'The film corpus',
     authors:'OpenSubtitles (Lison & Tiedemann, 2016); Bednarek (2018)',
-    body:'The empirical foundation is a purpose-built subtitle corpus drawn from English-language fiction films featuring wildfire or broader climate crisis content, spanning multiple decades and genres. Subtitles are extracted from OpenSubtitles2016 and validated against verbatim transcription, with each film tagged by genre, release decade, and climate/wildfire relevance.',
-    contrib:'Without a defined corpus there is no empirical study. This is the raw material all ten theoretical strands operate on — and the paper\'s first novelty claim: no prior peer-reviewed study has assembled a subtitle corpus specifically targeting wildfire or climate film dialogue.',
-    wildfire:'Wildfire films form the core sub-corpus. Films such as Only the Brave (2017), Firestorm (2013), and fire-themed disaster films are prioritised, with broader climate cinema providing comparative context.',
+    body:'The study is built on a subtitle corpus pulled from English-language films depicting wildfire or climate crisis content, spanning multiple decades and genres. Each film is tagged by genre and release decade. Subtitles come from OpenSubtitles2016 — 2.6 billion sentences across 60 languages — with a validation sample checked against verbatim transcription to measure what gets lost in condensation.',
+    contrib:'This is the raw material. Without it, the ten theoretical strands have nothing to work with. It\'s also the paper\'s first and strongest novelty claim: no peer-reviewed study has ever assembled a subtitle corpus targeting wildfire film dialogue specifically. The Norman Lear Center found wildfire mentioned in only 11.4% of the extreme weather episodes that mentioned climate at all. This corpus goes looking for what those scripts actually say.',
+    wf:'Wildfire films — Only the Brave (2017), Firestorm (2013), and others — form the core. Broader climate cinema provides the comparison layer that makes patterns visible.',
     papers:[
-      { title:'OpenSubtitles2016: Extracting large parallel corpora from movie and TV subtitles', authors:'Lison & Tiedemann', year:'2016', doi:'https://aclanthology.org/L16-1147' },
-      { title:'Language and television series: A linguistic approach to TV dialogue', authors:'Bednarek', year:'2018', doi:'https://doi.org/10.1017/9781108559553' }
+      {t:'OpenSubtitles2016: Extracting large parallel corpora from movie and TV subtitles',a:'Lison & Tiedemann',y:'2016',d:'https://aclanthology.org/L16-1147'},
+      {t:'Language and television series: A linguistic approach to TV dialogue',a:'Bednarek',y:'2018',d:'https://doi.org/10.1017/9781108559553'}
     ]
   },
-  cads: {
-    tag:'Method', tagClass:'tag-purple', contribClass:'contrib-purple', wfClass:'wf-purple',
-    related:['corpus','framing','cda','narrative','affect','clt','synthesis'],
+  cads:{
+    tag:'Method',tc:'t-deep',cc:'c-deep',wc:'w-deep',
+    rel:['corpus','framing','cda','narrative','affect','clt','synthesis'],
     title:'Corpus-assisted discourse studies',
-    authors:'Baker et al. (2008); Baker (2006); Bednarek (2018)',
-    body:'CADS integrates the quantitative pattern-detection power of corpus linguistics — keyword analysis, collocation, concordancing — with the interpretive depth of critical discourse analysis. It guards against confirmation bias by surfacing recurrent patterns across a large body of text rather than relying on analyst-selected examples.',
-    contrib:'CADS is the methodological spine. It operationalises framing as keyword distributions, discourse as concordance patterns, affect as emotion-lexicon frequencies, and psychological distance as deictic markers — transforming interpretive concepts into measurable linguistic variables.',
-    wildfire:'Applied to wildfire film dialogue, CADS can surface whether the word "fire" collocates with agency terms (fight, control, contain) or catastrophe terms (devastation, loss, climate) — a direct measure of how wildfire is framed as manageable vs systemic.',
+    authors:'Baker et al. (2008); Baker (2006)',
+    body:'Corpus linguistics can tell you what words appear together most often across thousands of scripts — which is useful, but it can\'t tell you what those patterns mean. Critical discourse analysis can tell you what a text means — but it\'s vulnerable to cherry-picking the examples that support the argument. CADS combines both: corpus tools find the patterns, discourse analysis interprets them. It\'s the methodological equivalent of counting and reading at the same time.',
+    contrib:'Every other strand in this framework depends on CADS to become empirically testable. Framing theory needs keyword distributions. CDA needs concordance lines. Affect theory needs emotion lexicons. CLT needs deictic markers. CADS is the engine that drives all of them.',
+    wf:'When you run CADS on wildfire dialogue, you can ask: does "fire" collocate with "fight" and "contain" — or with "climate" and "lost everything"? That collocation pattern is a direct measure of whether wildfire is framed as a manageable hazard or a climate consequence.',
     papers:[
-      { title:'A useful methodological synergy? Combining critical discourse analysis and corpus linguistics', authors:'Baker et al.', year:'2008', doi:'https://doi.org/10.1177/0957926508088962' },
-      { title:'Using corpora in discourse analysis', authors:'Baker', year:'2006', doi:'https://doi.org/10.5040/9781350933996' }
+      {t:'A useful methodological synergy? Combining CDA and corpus linguistics',a:'Baker et al.',y:'2008',d:'https://doi.org/10.1177/0957926508088962'},
+      {t:'Using corpora in discourse analysis',a:'Baker',y:'2006',d:'https://doi.org/10.5040/9781350933996'}
     ]
   },
-  framing: {
-    tag:'Core theory', tagClass:'tag-teal', contribClass:'contrib-teal', wfClass:'wf-teal',
-    related:['cads','frames-op','cda','synthesis'],
+  framing:{
+    tag:'Core theory',tc:'t-forest',cc:'c-forest',wc:'w-forest',
+    rel:['cads','frames-op','cda','synthesis'],
     title:'Framing theory',
     authors:'Entman (1993); Scheufele (1999); Nisbet (2009)',
-    body:'To frame is to select aspects of perceived reality and make them salient to promote a particular problem definition, causal interpretation, moral evaluation, and treatment recommendation (Entman, 1993). Nisbet (2009) developed eight climate-specific frames — from social progress and economic threat to Pandora\'s box and public accountability.',
-    contrib:'Framing theory provides the primary dependent variable: which of Nisbet\'s eight frames appears in wildfire film dialogue, which are absent, and how frame distributions vary by genre and decade. This is the central analytical grid of the paper.',
-    wildfire:'Wildfire films are expected to over-represent the Pandora\'s box frame (runaway catastrophe) and under-represent public accountability and public health frames — a gap between cinematic representation and effective climate communication strategy.',
+    body:'Framing is the process by which some aspects of an issue get emphasised and others don\'t. Entman\'s definition is still the clearest: to frame is to select and make salient a problem definition, a causal interpretation, a moral judgement, and a treatment recommendation. Nisbet applied this to climate specifically and produced eight frames — social progress, economic threat, Pandora\'s box, public accountability, and so on — each of which makes the issue legible to a different audience in a different way.',
+    contrib:'This gives the paper its central dependent variable: which of Nisbet\'s eight frames shows up in wildfire dialogue, in what proportions, and how does that vary by genre and decade? It\'s the grid the whole analysis hangs on.',
+    wf:'Films about wildfire are expected to over-use the Pandora\'s box frame — catastrophe as spectacle — and under-use the public accountability and public health frames that would actually connect the fire to policy, industry, and lived health impacts. The Lear Center found that even when extreme weather was mentioned, it was linked to climate change only 10% of the time. Wildfire cinema probably looks similar.',
     papers:[
-      { title:'Framing: Toward clarification of a fractured paradigm', authors:'Entman', year:'1993', doi:'https://doi.org/10.1111/j.1460-2466.1993.tb01304.x' },
-      { title:'Communicating climate change: Why frames matter for public engagement', authors:'Nisbet', year:'2009', doi:'https://doi.org/10.3200/ENVT.51.2.12-23' },
-      { title:'Framing as a theory of media effects', authors:'Scheufele', year:'1999', doi:'https://doi.org/10.1111/j.1460-2466.1999.tb02784.x' }
+      {t:'Framing: Toward clarification of a fractured paradigm',a:'Entman',y:'1993',d:'https://doi.org/10.1111/j.1460-2466.1993.tb01304.x'},
+      {t:'Communicating climate change: Why frames matter for public engagement',a:'Nisbet',y:'2009',d:'https://doi.org/10.3200/ENVT.51.2.12-23'},
+      {t:'Framing as a theory of media effects',a:'Scheufele',y:'1999',d:'https://doi.org/10.1111/j.1460-2466.1999.tb02784.x'}
     ]
   },
-  cda: {
-    tag:'Core theory', tagClass:'tag-teal', contribClass:'contrib-teal', wfClass:'wf-teal',
-    related:['cads','voice-op','framing','synthesis'],
+  cda:{
+    tag:'Core theory',tc:'t-forest',cc:'c-forest',wc:'w-forest',
+    rel:['cads','voice-op','framing','synthesis'],
     title:'Critical discourse analysis',
     authors:'Fairclough (1995, 2003); van Dijk (1993, 2008)',
-    body:'CDA treats discourse as social practice and asks how texts reproduce power relations. Fairclough\'s three-dimensional model links textual analysis, discursive practice, and sociocultural context. Van Dijk\'s socio-cognitive approach highlights elite discourse control — who is licensed to define reality in public texts.',
-    contrib:'CDA directs the qualitative reading of concordance lines: who is granted authoritative climate speech, whose voice is discredited, and which social actors are positioned as responsible for wildfire and climate harm.',
-    wildfire:'In wildfire cinema, CDA reveals whether Indigenous land management knowledge is voiced or silenced, whether corporate land developers are named as causal agents, and whether firefighters\' labour is framed as heroic sacrifice or systemic failure.',
+    body:'Framing theory tells you what gets said. CDA asks who gets to say it — and whose version of events gets treated as credible. Fairclough\'s three-dimensional model connects the words on the page to the social conditions that produced them. Van Dijk focuses on how elites control public discourse: who is licensed to define the problem, whose expertise counts, whose fear is taken seriously.',
+    contrib:'CDA guides the qualitative reading of the concordance lines that corpus analysis surfaces. Once CADS identifies that "scientist" collocates with "warned" and "ignored," CDA asks what that pattern means for how climate expertise is legitimated in wildfire cinema — and who pays the price when it\'s dismissed.',
+    wf:'In wildfire films, this matters a lot. Are Indigenous land management traditions voiced or erased? Are the communities most exposed to wildfire given screen time? Is the firefighter\'s sacrifice framed as heroism, or as the predictable outcome of decades of bad policy? CDA is how you tell the difference.',
     papers:[
-      { title:'Media discourse', authors:'Fairclough', year:'1995', doi:'https://doi.org/10.4324/9781315846583' },
-      { title:'Principles of critical discourse analysis', authors:'van Dijk', year:'1993', doi:'https://doi.org/10.1177/0957926593004002006' },
-      { title:'Discourse and power', authors:'van Dijk', year:'2008', doi:'https://doi.org/10.1007/978-1-137-07299-3' }
+      {t:'Media discourse',a:'Fairclough',y:'1995',d:'https://doi.org/10.4324/9781315846583'},
+      {t:'Principles of critical discourse analysis',a:'van Dijk',y:'1993',d:'https://doi.org/10.1177/0957926593004002006'},
+      {t:'Discourse and power',a:'van Dijk',y:'2008',d:'https://doi.org/10.1007/978-1-137-07299-3'}
     ]
   },
-  narrative: {
-    tag:'Core theory', tagClass:'tag-teal', contribClass:'contrib-teal', wfClass:'wf-teal',
-    related:['cads','genre-op','synthesis'],
+  narrative:{
+    tag:'Core theory',tc:'t-forest',cc:'c-forest',wc:'w-forest',
+    rel:['cads','genre-op','synthesis'],
     title:'Narrative transportation & genre',
     authors:'Green & Brock (2000); Moyer-Gusé (2008); Bordwell & Thompson (2013)',
-    body:'Transportation theory holds that absorption into a story reduces counterarguing and increases story-consistent beliefs. Genre conventions (disaster, sci-fi, documentary) set a "horizon of expectations" that pre-structures which climate framings are sayable and how audiences receive them.',
-    contrib:'Genre becomes the key independent variable: the paper tests whether disaster films, sci-fi films, and documentaries differ systematically in their frame distributions, affective lexis, and construal patterns.',
-    wildfire:'Wildfire disaster films rely heavily on transportation through spectacle and personal survival narrative — the burning house, the family evacuation — which may intensify fear but detach from systemic climate causation.',
+    body:'When you\'re absorbed in a story, you argue with it less. Green and Brock called this "transportation" — the mental state of being pulled into a narrative so fully that counter-arguments don\'t get a foothold. Genre shapes the container this happens in: a disaster film and a documentary about the same wildfire will produce very different experiences, because their conventions, their heroes, and their emotional rhythms are different.',
+    contrib:'Genre becomes the study\'s key independent variable. The paper tests whether disaster films, sci-fi features, and documentaries frame wildfire and climate differently in language that can be measured — different frame profiles, different emotional lexis, different construal levels. That comparison is what makes the findings generalisable rather than just descriptive.',
+    wf:'Wildfire disaster films rely on transportation through personal survival — the burning house, the trapped family, the last-minute rescue. That\'s powerful. But it tends to make wildfire about individual fate rather than collective cause, which is exactly the framing problem the paper sets out to document.',
     papers:[
-      { title:'The role of transportation in the persuasiveness of public narratives', authors:'Green & Brock', year:'2000', doi:'https://doi.org/10.1037/0022-3514.79.5.701' },
-      { title:'Toward a theory of entertainment persuasion', authors:'Moyer-Gusé', year:'2008', doi:'https://doi.org/10.1111/j.1468-2885.2008.00328.x' }
+      {t:'The role of transportation in the persuasiveness of public narratives',a:'Green & Brock',y:'2000',d:'https://doi.org/10.1037/0022-3514.79.5.701'},
+      {t:'Toward a theory of entertainment persuasion',a:'Moyer-Gusé',y:'2008',d:'https://doi.org/10.1111/j.1468-2885.2008.00328.x'}
     ]
   },
-  affect: {
-    tag:'Core theory', tagClass:'tag-teal', contribClass:'contrib-teal', wfClass:'wf-teal',
-    related:['cads','emotion-op','clt','synthesis'],
+  affect:{
+    tag:'Core theory',tc:'t-forest',cc:'c-forest',wc:'w-forest',
+    rel:['cads','emotion-op','clt','synthesis'],
     title:'Affect & risk communication',
-    authors:'O\'Neill & Nicholson-Cole (2009); Nabi (2003); Leiserowitz (2006); Albrecht (2005)',
-    body:'O\'Neill & Nicholson-Cole showed that fear-based catastrophic climate imagery attracts attention but backfires as an engagement strategy, triggering denial rather than action. Nabi theorised discrete emotions as frames that shape information accessibility and policy preference. Albrecht\'s solastalgia captures the grief of environmental loss at home.',
-    contrib:'Motivates construction of a sentiment and emotion lexicon applied to the subtitle corpus, testing whether wildfire films lean on fear (the backfiring strategy), hope, or grief — and whether the affective register has shifted across decades.',
-    wildfire:'Wildfire cinema is uniquely positioned to trigger solastalgia — the grief of watching a known landscape burn. Whether films exploit this grief productively (toward engagement) or leave it unresolved (toward helplessness) is a central empirical question.',
+    authors:"O'Neill & Nicholson-Cole (2009); Nabi (2003); Leiserowitz (2006); Albrecht (2005)",
+    body:'There is good evidence that fear is a bad climate communication strategy. O\'Neill and Nicholson-Cole showed that catastrophic imagery attracts attention but tends to trigger psychological distance and denial rather than engagement. Nabi\'s work on emotion as framing goes further: discrete emotions — fear, anger, hope, grief — don\'t just colour an argument, they shape which information gets processed and which gets ignored. Albrecht\'s solastalgia captures something different again: the specific grief of watching a familiar landscape become unrecognisable.',
+    contrib:'The affective strand motivates one of the study\'s most concrete empirical tools: an emotion lexicon built from LIWC and NRC dictionaries, supplemented with climate/wildfire-specific terms, that can be applied to the corpus to produce an affective profile of wildfire cinema across genres and decades.',
+    wf:'Wildfire is uniquely positioned to trigger solastalgia. It\'s not a future threat — it\'s a present loss. The question is whether films use that grief to open something or to close it down into helplessness. That distinction is measurable in language.',
     papers:[
-      { title:'"Fear won\'t do it": Promoting positive engagement with climate change', authors:'O\'Neill & Nicholson-Cole', year:'2009', doi:'https://doi.org/10.1177/1075547008329201' },
-      { title:'Exploring the framing effects of emotion', authors:'Nabi', year:'2003', doi:'https://doi.org/10.1177/0093650202250881' },
-      { title:'Climate change risk perception and policy preferences', authors:'Leiserowitz', year:'2006', doi:'https://doi.org/10.1007/s10584-006-9059-9' }
+      {t:'"Fear won\'t do it": Promoting positive engagement with climate change',a:"O'Neill & Nicholson-Cole",y:'2009',d:'https://doi.org/10.1177/1075547008329201'},
+      {t:'Exploring the framing effects of emotion',a:'Nabi',y:'2003',d:'https://doi.org/10.1177/0093650202250881'},
+      {t:'Climate change risk perception and policy preferences',a:'Leiserowitz',y:'2006',d:'https://doi.org/10.1007/s10584-006-9059-9'}
     ]
   },
-  clt: {
-    tag:'Core theory', tagClass:'tag-teal', contribClass:'contrib-teal', wfClass:'wf-teal',
-    related:['cads','distance-op','affect','synthesis'],
+  clt:{
+    tag:'Core theory',tc:'t-forest',cc:'c-forest',wc:'w-forest',
+    rel:['cads','distance-op','affect','synthesis'],
     title:'Construal level theory',
     authors:'Trope & Liberman (2010); Spence et al. (2012)',
-    body:'CLT argues that the psychological distance of an event — temporal, spatial, social, and hypothetical — determines whether it is construed abstractly or concretely. Climate change is typically perceived as distant across all four dimensions. The "proximising" hypothesis holds that reducing distance should increase engagement, though experimental evidence is contested.',
-    contrib:'Motivates analysis of temporal and spatial deixis, tense, and modality in film dialogue. The paper tests whether films locate wildfire and climate threat in distant futures or proximate present moments — and whether this has shifted after 2018.',
-    wildfire:'Post-2018 wildfire seasons in California, Australia, and Greece may have forced a collapse of psychological distance in films made since then. This is the study\'s most testable diachronic hypothesis.',
+    body:'Climate change is usually psychologically far away — in time (the future), in space (the Arctic, the coast), in social terms (other people), and in probability (if we don\'t act). Trope and Liberman\'s construal level theory explains why: distant things get represented abstractly, close things concretely. The problem for climate communication is that abstract representations don\'t move people to act the same way concrete ones do. The so-called "proximising" hypothesis suggests that closing the distance should help — though the experimental evidence for that is more mixed than it sounds.',
+    contrib:'CLT motivates the analysis of deixis, tense, and modal hedging in the subtitle corpus — the linguistic markers of near and far. The paper can track whether wildfire cinema places the threat in a distant future or a present reality, and whether that has changed as actual wildfires have become part of lived experience for millions of people.',
+    wf:'This is probably the study\'s most interesting empirical question. Wildfire has a proximity advantage that sea level rise doesn\'t. Post-2018 films made after the California, Australian, and Greek fire seasons may show a measurable shift in construal level — more present tense, more proximal deictic, less conditional hedging.',
     papers:[
-      { title:'Construal-level theory of psychological distance', authors:'Trope & Liberman', year:'2010', doi:'https://doi.org/10.1037/a0018963' },
-      { title:'The psychological distance of climate change', authors:'Spence et al.', year:'2012', doi:'https://doi.org/10.1111/j.1539-6924.2011.01695.x' }
+      {t:'Construal-level theory of psychological distance',a:'Trope & Liberman',y:'2010',d:'https://doi.org/10.1037/a0018963'},
+      {t:'The psychological distance of climate change',a:'Spence et al.',y:'2012',d:'https://doi.org/10.1111/j.1539-6924.2011.01695.x'}
     ]
   },
-  'frames-op': {
-    tag:'Operationalisation', tagClass:'tag-amber', contribClass:'contrib-amber', wfClass:'wf-amber',
-    related:['framing','synthesis'],
-    title:'Frame coding — 8 Nisbet types',
+  'frames-op':{
+    tag:'Operationalisation',tc:'t-gold',cc:'c-gold',wc:'w-gold',
+    rel:['framing','synthesis'],
+    title:"Coding Nisbet's eight frames",
     authors:'Nisbet (2009); Entman (1993)',
-    body:'Each of Nisbet\'s eight frames is translated into a set of lexical markers and collocations. Keyword analysis identifies which frame-lexis is statistically over-represented in the corpus versus a reference corpus, using log-likelihood statistics (LL ≥ 15.13, p < .0001).',
-    contrib:'Produces the paper\'s central quantitative finding: a ranked distribution of climate frames across wildfire cinema, with cross-genre and cross-decade breakdowns. The main result table.',
-    wildfire:'Expected finding: Pandora\'s box and social progress frames dominate wildfire films; public accountability and public health frames are statistically under-represented compared to climate documentaries.',
+    body:"Each of Nisbet's eight climate frames gets translated into a set of lexical markers and collocations that the corpus tools can detect. Keyword analysis, using log-likelihood statistics, identifies which frame-lexis is statistically over-represented in the wildfire/climate corpus compared to a reference corpus. The result is a ranked distribution — which frames dominate, which are absent, and how that varies by genre and decade.",
+    contrib:"This is the paper's main result table. The headline finding — whichever frame dominates wildfire cinema — will be the most quotable output of the study, and the one most directly relevant to science communicators and screenwriters who want to understand what cinema is actually telling people about fire.",
+    wf:"The expectation, going in, is that Pandora's box dominates and public accountability barely appears. If that's wrong — if recent wildfire films have shifted toward accountability or public health frames — that would be the more interesting finding.",
     papers:[
-      { title:'Communicating climate change: Why frames matter for public engagement', authors:'Nisbet', year:'2009', doi:'https://doi.org/10.3200/ENVT.51.2.12-23' },
-      { title:'Framing climate change framing research — systematic review', authors:'Guenther et al.', year:'2024', doi:'https://doi.org/10.1177/10755470241275542' }
+      {t:'Communicating climate change: Why frames matter for public engagement',a:'Nisbet',y:'2009',d:'https://doi.org/10.3200/ENVT.51.2.12-23'},
+      {t:'Framing climate change framing research — 25-year systematic review',a:'Guenther et al.',y:'2024',d:'https://doi.org/10.1177/10755470241275542'}
     ]
   },
-  'voice-op': {
-    tag:'Operationalisation', tagClass:'tag-amber', contribClass:'contrib-amber', wfClass:'wf-amber',
-    related:['cda','synthesis'],
-    title:'Voice & power analysis',
+  'voice-op':{
+    tag:'Operationalisation',tc:'t-gold',cc:'c-gold',wc:'w-gold',
+    rel:['cda','synthesis'],
+    title:'Voice and power in the dialogue',
     authors:'Fairclough (1995); van Dijk (1993); Manzo (2017)',
-    body:'Concordance analysis of climate-relevant speech acts examines grammatical subjects and the discursive legitimation of different character types. Transitivity analysis asks whether climate is something that happens to characters (passive construal) or something characters act upon (active agency).',
-    contrib:'Adds the qualitative texture that frame counts cannot provide — documenting whether corporate actors are unnamed as causal agents, or whether scientist characters are legitimised only to be disbelieved.',
-    wildfire:'Wildfire films frequently grant voice to firefighters as heroic individuals while silencing policy actors, scientists, and affected communities — a pattern CDA can document systematically across the corpus.',
+    body:'Concordance analysis of climate-relevant speech acts asks: who performs the climate verbs? Who warns, who denies, who fixes, who suffers? Transitivity analysis adds another layer — is climate something characters do (active agency) or something that happens to them (passive construal)? Together these tools reveal the politics of the dialogue without relying on the analyst\'s intuition about individual scenes.',
+    contrib:"Adds the qualitative depth that frame counts alone can't provide. You can have a film that uses the social progress frame heavily but routes all the agency through a single heroic engineer — which is a very different political position from a film that uses the same frame and puts collective action at its centre. Voice analysis tells you which is which.",
+    wf:"In wildfire films, the firefighter is often the only agent. Everyone else reacts. That's a specific representational choice, and it's one that shapes how audiences understand who is responsible for both the fire and the response to it.",
     papers:[
-      { title:'The usefulness of climate change films', authors:'Manzo', year:'2017', doi:'https://doi.org/10.1016/j.geoforum.2017.06.006' },
-      { title:'Analysing discourse: Textual analysis for social research', authors:'Fairclough', year:'2003', doi:'https://doi.org/10.4324/9780203697078' }
+      {t:'The usefulness of climate change films',a:'Manzo',y:'2017',d:'https://doi.org/10.1016/j.geoforum.2017.06.006'},
+      {t:'Analysing discourse: Textual analysis for social research',a:'Fairclough',y:'2003',d:'https://doi.org/10.4324/9780203697078'}
     ]
   },
-  'genre-op': {
-    tag:'Operationalisation', tagClass:'tag-amber', contribClass:'contrib-amber', wfClass:'wf-amber',
-    related:['narrative','synthesis'],
-    title:'Genre as independent variable',
+  'genre-op':{
+    tag:'Operationalisation',tc:'t-gold',cc:'c-gold',wc:'w-gold',
+    rel:['narrative','synthesis'],
+    title:'Genre as the independent variable',
     authors:'Bordwell & Thompson (2013); Svoboda (2016); Salmose (2018)',
-    body:'Each film in the corpus is tagged with its primary genre (disaster, science fiction, drama, documentary, thriller) and release decade. Statistical comparisons of frame distributions and affective lexis across genre categories test whether generic conventions systematically shape climate representation.',
-    contrib:'Enables the paper\'s comparative structure — showing that disaster films and documentaries construct climate and wildfire differently in linguistically measurable ways.',
-    wildfire:'Wildfire films straddle disaster and drama genres. The comparison between wildfire disaster films and climate documentaries covering wildfires (e.g. Fire of Love, 2022) is one of the most direct genre contrasts the corpus enables.',
+    body:"Each film in the corpus gets tagged by primary genre (disaster, sci-fi, drama, documentary, thriller) and release decade. Statistical comparison of frame distributions, emotional lexis, and construal markers across genre categories tests whether it's genre conventions, more than anything else, that determine how wildfire and climate get talked about on screen.",
+    contrib:"This is what makes the paper comparative rather than just descriptive. It's not 'wildfire cinema does X.' It's 'disaster films do X, documentaries do Y, and the gap between them is Z.' That finding speaks directly to the Lear Center's recommendation to 'consider climate in all genres' — because if genre shapes representation so strongly, that's a case for genre diversity in climate storytelling.",
+    wf:"The comparison between Only the Brave (disaster/drama) and Fire of Love (documentary) is probably the most direct genre contrast the corpus can offer — same subject, completely different representational logic.",
     papers:[
-      { title:'Cli-fi on the screen(s): Patterns in the representations of climate change in fictional films', authors:'Svoboda', year:'2016', doi:'https://doi.org/10.1002/wcc.381' },
-      { title:'The apocalyptic sublime: Anthropocene representation in Hollywood cli-fi', authors:'Salmose', year:'2018', doi:'https://doi.org/10.1111/jpcu.12742' }
+      {t:'Cli-fi on the screen(s): Patterns in the representations of climate change in fictional films',a:'Svoboda',y:'2016',d:'https://doi.org/10.1002/wcc.381'},
+      {t:'The apocalyptic sublime: Anthropocene representation in Hollywood cli-fi',a:'Salmose',y:'2018',d:'https://doi.org/10.1111/jpcu.12742'}
     ]
   },
-  'emotion-op': {
-    tag:'Operationalisation', tagClass:'tag-amber', contribClass:'contrib-amber', wfClass:'wf-amber',
-    related:['affect','synthesis'],
-    title:'Emotion lexicon',
-    authors:'Nabi (2003); O\'Neill & Nicholson-Cole (2009); Albrecht (2005)',
-    body:'A domain-specific emotion lexicon is built from established affect dictionaries (LIWC, NRC Emotion Lexicon) and supplemented with climate/wildfire-specific terms. Frequency and collocation of fear-, hope-, and grief-category terms provides the affective profile of each genre and decade.',
-    contrib:'Directly tests the O\'Neill & Nicholson-Cole thesis at scale: is wildfire cinema dominated by the fear register theorised to backfire, or has there been a shift toward grief-to-hope emotional arcs?',
-    wildfire:'Solastalgia vocabulary (loss, home, gone, ash, before) is expected to be a significant wildfire-specific cluster, distinguishing wildfire films from other climate cinema through their orientation toward landscape grief rather than future threat.',
+  'emotion-op':{
+    tag:'Operationalisation',tc:'t-gold',cc:'c-gold',wc:'w-gold',
+    rel:['affect','synthesis'],
+    title:'The emotion lexicon',
+    authors:"Nabi (2003); O'Neill & Nicholson-Cole (2009); Albrecht (2005)",
+    body:'A domain-specific emotion lexicon is built from LIWC and the NRC Emotion Lexicon, then extended with wildfire/climate-specific vocabulary. Frequency and collocation of fear-, hope-, and grief-category terms across the corpus gives each genre and decade an affective profile — a kind of emotional fingerprint.',
+    contrib:"This directly tests O'Neill and Nicholson-Cole's thesis at corpus scale. Is wildfire cinema stuck in fear? Has it moved toward grief and then toward hope? Or does it vary by genre in ways that suggest different implicit theories of what works? The Lear Center found audiences want to see their climate anxiety reflected — not just told scary facts. The emotion lexicon measures whether films are doing that.",
+    wf:'Solastalgia vocabulary — loss, ash, before, gone, what used to be — is expected to cluster in wildfire dialogue in ways that distinguish it from other climate cinema. If that cluster exists, it\'s a sign that wildfire cinema is beginning to develop its own emotional grammar.',
     papers:[
-      { title:'Emotional flow in persuasive health messages', authors:'Nabi', year:'2015', doi:'https://doi.org/10.1080/10410236.2014.974129' },
-      { title:'Solastalgia: The distress caused by environmental change', authors:'Albrecht et al.', year:'2007', doi:'https://doi.org/10.1080/10398560701701288' }
+      {t:'Emotional flow in persuasive health messages',a:'Nabi',y:'2015',d:'https://doi.org/10.1080/10410236.2014.974129'},
+      {t:'Solastalgia: The distress caused by environmental change',a:'Albrecht et al.',y:'2007',d:'https://doi.org/10.1080/10398560701701288'}
     ]
   },
-  'distance-op': {
-    tag:'Operationalisation', tagClass:'tag-amber', contribClass:'contrib-amber', wfClass:'wf-amber',
-    related:['clt','synthesis'],
-    title:'Psychological distance markers',
+  'distance-op':{
+    tag:'Operationalisation',tc:'t-gold',cc:'c-gold',wc:'w-gold',
+    rel:['clt','synthesis'],
+    title:'Measuring psychological distance',
     authors:'Trope & Liberman (2010); Spence et al. (2012)',
-    body:'Temporal distance: future-tense constructions and deictic expressions (then, someday) vs. present-tense threat language. Spatial distance: remote place references vs. local place names and proximal deictics (here, this town). Social distance: third-person othering vs. first-person collective. Hypothetical distance: conditional and modal hedging (might, could, if).',
-    contrib:'Produces a construal-level profile of wildfire cinema showing whether films make the climate crisis psychologically close or far — and whether this has changed across decades.',
-    wildfire:'Wildfire is inherently spatially and temporally proximate in ways that Arctic ice melt or sea level rise are not. Whether dialogue capitalises on this proximity or still abstracts wildfire into a distant hypothetical is the paper\'s most novel empirical question.',
+    body:'Four dimensions of distance get operationalised as searchable linguistic patterns. Temporal: future tense and expressions like "someday" versus present tense and "right now." Spatial: remote place names versus local ones and proximal deictics like "here." Social: "they" and "future generations" versus "we" and "our children." Hypothetical: conditional and modal hedging like "might," "could," and "if we don\'t act" versus declarative certainty.',
+    contrib:"Produces the paper's construal-level profile of wildfire cinema — a measure of how psychologically close or far the crisis is placed. If recent wildfire films show a shift toward present tense, local reference, and first-person collective speech, that's evidence that cinema is starting to close the distance that makes climate feel unreal to so many people.",
+    wf:"Wildfire has a structural advantage here. It's not a future scenario — it's a current event that millions of people have lived through. Whether dialogue exploits that proximity or still abstracts it into a distant hypothetical is one of the study's most directly testable questions.",
     papers:[
-      { title:'Construal-level theory of psychological distance', authors:'Trope & Liberman', year:'2010', doi:'https://doi.org/10.1037/a0018963' },
-      { title:'The psychological distance of climate change', authors:'Spence et al.', year:'2012', doi:'https://doi.org/10.1111/j.1539-6924.2011.01695.x' }
+      {t:'Construal-level theory of psychological distance',a:'Trope & Liberman',y:'2010',d:'https://doi.org/10.1037/a0018963'},
+      {t:'The psychological distance of climate change',a:'Spence et al.',y:'2012',d:'https://doi.org/10.1111/j.1539-6924.2011.01695.x'}
     ]
   },
-  agency: {
-    tag:'Supporting theory', tagClass:'tag-slate', contribClass:'contrib-slate', wfClass:'wf-slate',
-    related:['synthesis','voice-op'],
-    title:'Agency & responsibility framing',
+  agency:{
+    tag:'Supporting theory',tc:'t-slate',cc:'c-slate',wc:'w-slate',
+    rel:['synthesis','voice-op'],
+    title:'Who is responsible?',
     authors:'Maniates (2001); Entman (1993)',
-    body:'Maniates critiques the "individualisation of responsibility" in environmental discourse: framing crises as products of individual consumer choices obscures institutional, corporate, and political drivers. Applied to cinema, this examines whether films route solutions through heroic individuals or collective and systemic action.',
-    contrib:'Adds a political-economy layer to the frame analysis. The paper documents whether wildfire films individualise agency (the heroic firefighter) or implicate systems (fossil capital, land management policy).',
-    wildfire:'The heroic firefighter narrative is arguably the dominant wildfire-cinema archetype — Only the Brave is its purest form. Whether this heroism individualises responsibility and obscures the political economy of wildfire risk is the paper\'s most direct political argument.',
+    body:'Maniates identified a specific problem in environmental communication: when crises get framed as the sum of individual bad choices, the systemic causes disappear from view. No one asks who built the housing development in the fire zone, or who funded the political opposition to forest management reform. The "individualisation of responsibility" makes the problem feel personal and therefore fixable by personal action — which is both comforting and wrong.',
+    contrib:"The paper documents whether wildfire films reproduce this pattern. Is the solution a heroic firefighter, a reformed arsonist, a family that evacuates in time? Or does the dialogue name the systems — the insurance industry, the land developers, the fossil fuel companies — that shape wildfire risk? That distinction has direct implications for what kind of public response cinema is implicitly encouraging.",
+    wf:"Only the Brave is the clearest case study. It's a film about twenty men who died fighting a fire. It's also, if you ask the right questions, a film about what we ask of working-class people when the systems that are supposed to prevent disasters don't work. Whether the film asks those questions is exactly what this strand measures.",
     papers:[
-      { title:'Individualization: Plant a tree, buy a bike, save the world?', authors:'Maniates', year:'2001', doi:'https://doi.org/10.1162/152638001316881395' }
+      {t:'Individualization: Plant a tree, buy a bike, save the world?',a:'Maniates',y:'2001',d:'https://doi.org/10.1162/152638001316881395'}
     ]
   },
-  pus: {
-    tag:'Supporting theory', tagClass:'tag-slate', contribClass:'contrib-slate', wfClass:'wf-slate',
-    related:['synthesis','cda'],
-    title:'Public understanding of science',
+  pus:{
+    tag:'Supporting theory',tc:'t-slate',cc:'c-slate',wc:'w-slate',
+    rel:['synthesis','cda'],
+    title:'How science gets communicated',
     authors:'Wynne (1991); Bucchi (2008); Boykoff (2011)',
-    body:'The deficit model assumes public scepticism reflects ignorance remediable by information; dialogic models recognise that audiences evaluate scientific claims through trust and lived experience. Entertainment media shape lay understanding without claiming to be authoritative science.',
-    contrib:'Positions the paper within the science communication field: if wildfire films enact the deficit model, they reproduce a communication strategy shown to be ineffective. If they dramatise contested knowledge, they may model more productive public engagement.',
-    wildfire:'Wildfire is unusual in the PUS landscape because it is directly experienced: audiences who have evacuated, lost property, or breathed smoke evaluate cinematic wildfire claims through lived knowledge that no deficit model can override.',
+    body:"The deficit model of science communication — the idea that people resist scientific consensus because they don't know enough — turns out to be mostly wrong. Wynne's case studies showed that lay publics are sophisticated evaluators of scientific claims, and that their scepticism is usually about institutional trust rather than factual ignorance. The entertainment industry tends to encode the deficit model anyway: a scientist explains, the public doubts, the scientist is proved right.",
+    contrib:"Positions the paper in a science communication debate that goes beyond climate. If wildfire cinema systematically enacts the deficit model — routing climate expertise through a lone scientist who is ignored until disaster strikes — it's reinforcing a communication strategy that decades of research have shown doesn't work. That's a specific, actionable finding for both screenwriters and climate communicators.",
+    wf:"Wildfire audiences are increasingly people who have smelled the smoke. They're not uninformed. The question is whether films treat them as people with relevant knowledge, or as a confused public waiting to be educated.",
     papers:[
-      { title:'Knowledges in context', authors:'Wynne', year:'1991', doi:'https://doi.org/10.1177/016224399101600108' },
-      { title:'Who speaks for the climate?', authors:'Boykoff', year:'2011', doi:'https://doi.org/10.1017/CBO9780511978586' }
+      {t:'Knowledges in context',a:'Wynne',y:'1991',d:'https://doi.org/10.1177/016224399101600108'},
+      {t:'Who speaks for the climate?',a:'Boykoff',y:'2011',d:'https://doi.org/10.1017/CBO9780511978586'}
     ]
   },
-  cultivation: {
-    tag:'Supporting theory', tagClass:'tag-slate', contribClass:'contrib-slate', wfClass:'wf-slate',
-    related:['synthesis','corpus'],
-    title:'Cultivation theory',
+  cultivation:{
+    tag:'Supporting theory',tc:'t-slate',cc:'c-slate',wc:'w-slate',
+    rel:['synthesis','corpus'],
+    title:'The slow drip of repetition',
     authors:'Gerbner & Gross (1976); Morgan & Shanahan (2010)',
-    body:'Heavy, long-term exposure to television cultivates conceptions of social reality congruent with television\'s recurrent symbolic patterns. The theory emphasises aggregate and repetitive patterns — the "message system" — rather than individual texts.',
-    contrib:'Justifies the paper\'s aggregate, corpus-level design: the corpus is the cumulative "message system" cinema offers publics on climate and wildfire. The paper explicitly bounds its claims to content without overclaiming audience effects.',
-    wildfire:'If wildfire cinema consistently frames fire as spectacular, manageable by individual heroes, and climatically unconnected, cultivation theory predicts this pattern will shape viewer expectations of real wildfires — a claim with direct science communication implications.',
+    body:'Cultivation theory is not about individual films. It\'s about what happens when you see the same patterns over and over again across years of television. Gerbner called this the "message system" — the aggregate symbolic environment that heavy viewers absorb as a model of social reality. The claim isn\'t that any single film changes your mind. It\'s that the cumulative pattern of representations shapes your baseline assumptions about how the world works.',
+    contrib:"This is the theoretical justification for doing corpus analysis rather than close readings of individual films. The corpus is the message system. Whatever patterns emerge from the aggregate — dominant frames, emotional registers, construal levels — are exactly the patterns cultivation theory predicts will shape public expectations of wildfire and climate. The study can establish the content of that message system without overclaiming what it does to any individual viewer.",
+    wf:"If wildfire cinema consistently makes fire spectacular, manageable by individuals, and disconnected from climate causation, then cultivation theory predicts that audiences who have seen a lot of these films will bring those assumptions to real wildfire coverage — and probably to policy discussions as well.",
     papers:[
-      { title:'Living with television: The violence profile', authors:'Gerbner & Gross', year:'1976', doi:'https://doi.org/10.1111/j.1460-2466.1976.tb01397.x' },
-      { title:'The state of cultivation', authors:'Morgan & Shanahan', year:'2010', doi:'https://doi.org/10.1080/08838151003735018' }
+      {t:'Living with television: The violence profile',a:'Gerbner & Gross',y:'1976',d:'https://doi.org/10.1111/j.1460-2466.1976.tb01397.x'},
+      {t:'The state of cultivation',a:'Morgan & Shanahan',y:'2010',d:'https://doi.org/10.1080/08838151003735018'}
     ]
   },
-  clifi: {
-    tag:'Supporting theory', tagClass:'tag-slate', contribClass:'contrib-slate', wfClass:'wf-slate',
-    related:['gap','genre-op','synthesis'],
-    title:'Cli-fi & climate cinema studies',
+  clifi:{
+    tag:'Supporting theory',tc:'t-slate',cc:'c-slate',wc:'w-slate',
+    rel:['gap','genre-op','synthesis'],
+    title:'Cli-fi: the field this study joins',
     authors:'Trexler (2015); Svoboda (2016); Salmose (2018); Bould (2023)',
-    body:'The cli-fi field originated in literary studies and has produced rich novel-focused scholarship. Film study lags behind: Svoboda (2016) surveyed ~60 films finding a mismatch between cinematic representations and scientific consensus; Salmose (2018) analysed the "apocalyptic sublime" in Hollywood cli-fi.',
-    contrib:'Locates the paper within an existing conversation while demonstrating its distinctiveness. By focusing on dialogue/language rather than visual spectacle, and by using corpus methods rather than close reading, the paper offers cli-fi studies a methodological complement that scales.',
-    wildfire:'Wildfire is almost entirely absent from cli-fi scholarship. The paper fills this absence, contributing the first systematic account of wildfire as a cli-fi sub-genre with its own representational conventions.',
+    body:"Cli-fi scholarship grew out of literary studies and is still mostly there. Trexler and Johns-Putra coined the term and built the canon. Trexler's Anthropocene Fictions surveyed roughly 150 climate novels. Film studies has been slower: Svoboda's survey of 60 films is still the most systematic account, and it found a persistent mismatch between what climate science says and what cinema shows.",
+    contrib:"The paper joins this conversation but does something the field hasn't done before: it uses corpus methods to analyse dialogue rather than close-reading individual films. That changes the scale and changes the kinds of claims you can make. You can say 'disaster films statistically over-represent X' in a way that a single close reading can't support.",
+    wf:"Wildfire as a sub-genre of cli-fi is essentially undocumented. That's the gap. The paper doesn't just fill it — it demonstrates how to fill it, in a way that can be applied to other climate sub-genres (hurricane cinema, drought cinema, flood cinema) as the corpus grows.",
     papers:[
-      { title:'Cli-fi on the screen(s)', authors:'Svoboda', year:'2016', doi:'https://doi.org/10.1002/wcc.381' },
-      { title:'The apocalyptic sublime in Hollywood action-adventure cli-fi', authors:'Salmose', year:'2018', doi:'https://doi.org/10.1111/jpcu.12742' },
-      { title:'Climate change in literature and literary criticism', authors:'Trexler & Johns-Putra', year:'2011', doi:'https://doi.org/10.1002/wcc.105' }
+      {t:'Cli-fi on the screen(s)',a:'Svoboda',y:'2016',d:'https://doi.org/10.1002/wcc.381'},
+      {t:'The apocalyptic sublime in Hollywood action-adventure cli-fi',a:'Salmose',y:'2018',d:'https://doi.org/10.1111/jpcu.12742'},
+      {t:'Climate change in literature and literary criticism',a:'Trexler & Johns-Putra',y:'2011',d:'https://doi.org/10.1002/wcc.105'}
     ]
   },
-  gap: {
-    tag:'Research gap', tagClass:'tag-coral', contribClass:'contrib-coral', wfClass:'wf-coral',
-    related:['clifi','contribution'],
-    title:'The wildfire cinema gap',
+  gap:{
+    tag:'Research gap',tc:'t-fire',cc:'c-fire',wc:'w-fire',
+    rel:['clifi','contribution'],
+    title:'The glaring absence',
     authors:'Ladino et al. (2022); Dixon & Gawley (2023)',
-    body:'Systematic searching across Google Scholar, Semantic Scholar, Scite, and major publisher archives located no dedicated film-studies or literary-studies analysis of wildfire representation in cinema. The only near-treatments are Dixon & Gawley (2023) on Only the Brave through a workplace-disaster lens, and Ladino et al. (2022), an environmental-humanities perspective piece.',
-    contrib:'This documented gap is the paper\'s strongest positioning claim — transforming a topic preference into a demonstrable contribution. The paper is the first scholarly treatment of its subject.',
-    wildfire:'The gap is entirely about wildfire. While climate cinema broadly is theorised (Svoboda, Salmose, Bould), the specific sub-genre of wildfire cinema has no dedicated scholarly literature. This is the paper\'s raison d\'être.',
+    body:"The Norman Lear Center found that climate change was mentioned in 2.8% of 37,453 scripts. Wildfire specifically appeared in extreme weather mentions at a rate of 11.4% — but those extreme weather mentions were linked to climate change only 10% of the time. Systematic searching of academic databases for scholarly analysis of wildfire in cinema found almost nothing: Dixon and Gawley's reading of Only the Brave through a workplace-disaster lens, and Ladino et al.'s environmental humanities perspective piece. That's it.",
+    contrib:"The absence is the argument. This paper exists because no one has done it yet — and because the gap between how often wildfires appear in the news and how rarely they appear in scholarship on cinema is, at this point, hard to justify. The documented gap is the paper's strongest positioning claim.",
+    wf:"This is the wildfire lens. The entire study is motivated by this absence. Every other node in this framework is here because of this one.",
     papers:[
-      { title:'How nostalgia drives and derails living with wildland fire in the American West', authors:'Ladino et al.', year:'2022', doi:'https://doi.org/10.3390/fire5020053' },
-      { title:'Fanning the flames: How U.S. newspapers framed 10 historically significant U.S. wildfires', authors:'Terracina-Hartman', year:'2020', doi:'https://doi.org/10.1177/0739532920950498' }
+      {t:'How nostalgia drives and derails living with wildland fire in the American West',a:'Ladino et al.',y:'2022',d:'https://doi.org/10.3390/fire5020053'},
+      {t:'Fanning the flames: How U.S. newspapers framed 10 historically significant U.S. wildfires',a:'Terracina-Hartman',y:'2020',d:'https://doi.org/10.1177/0739532920950498'},
+      {t:'A Glaring Absence: The climate crisis in scripted entertainment',a:'Lear Center / Giaccardi et al.',y:'2022',d:'https://learcenter.s3.us-west-1.amazonaws.com/GlaringAbsence_NormanLearCenter.pdf'}
     ]
   },
-  synthesis: {
-    tag:'Integrated analysis', tagClass:'tag-purple', contribClass:'contrib-purple', wfClass:'wf-purple',
-    related:['cads','framing','cda','narrative','affect','clt','agency','pus','cultivation','clifi'],
-    title:'Integrated analytical architecture',
-    authors:'All ten theoretical strands in concert',
-    body:'The synthesis layer is where corpus-detected patterns are interpreted through the full suite of theories simultaneously. A keyword cluster around "fire" and "everything" might indicate Pandora\'s box framing (Nisbet), proximate spatial construal (CLT), individual heroism (Maniates), and a fear-dominant affect register (O\'Neill) — all readable from the same concordance lines through different theoretical lenses.',
-    contrib:'The paper\'s theoretical contribution lies here: demonstrating that framing, CDA, affect, CLT, agency, PUS, cultivation, cli-fi studies, and CADS form an interlocking architecture in which each strand explains a different layer of how wildfire cinema communicates the climate crisis.',
-    wildfire:'Wildfire cinema is the ideal test case for this integrated architecture because fire condenses all dimensions simultaneously: it is spatially proximate, temporally immediate, emotionally saturated, generically distinct, and politically contested — activating every theoretical strand at once.',
+  synthesis:{
+    tag:'Integrated analysis',tc:'t-deep',cc:'c-deep',wc:'w-deep',
+    rel:['cads','framing','cda','narrative','affect','clt','agency','pus','cultivation','clifi'],
+    title:'Where it all comes together',
+    authors:'All ten strands in conversation',
+    body:"The synthesis layer is where the corpus patterns get read through multiple theoretical lenses at the same time. A cluster of dialogue around 'the fire took everything' might indicate Pandora's box framing (Nisbet), solastalgia (Albrecht), high temporal proximity (CLT), passive agency construal (Maniates), and a grief-dominant affect register (O'Neill) — all from the same concordance lines. The strands don't compete; they stack.",
+    contrib:"This is the paper's theoretical contribution — not any individual strand, but the demonstration that they form a single architecture. Framing theory tells you what gets emphasised. CDA tells you whose voice does the emphasising. Affect theory tells you what emotional register that voice operates in. CLT tells you how close or far it places the threat. Cultivation tells you what happens when that pattern repeats across hundreds of films. Together they give you a complete account of how cinema communicates the climate crisis.",
+    wf:"Wildfire cinema is the ideal test case because wildfire activates every strand simultaneously. It's present and proximate (CLT). It's emotionally saturated (affect). It has a clear heroic individual (agency). It's almost never linked to the fossil fuel industry (framing). It generates grief about specific places (solastalgia). And it's been almost entirely ignored by scholars (gap). A framework that can handle all of that simultaneously is a framework that can handle anything.",
     papers:[
-      { title:'A useful methodological synergy?', authors:'Baker et al.', year:'2008', doi:'https://doi.org/10.1177/0957926508088962' },
-      { title:'Framing climate change framing research', authors:'Guenther et al.', year:'2024', doi:'https://doi.org/10.1177/10755470241275542' }
+      {t:'A useful methodological synergy?',a:'Baker et al.',y:'2008',d:'https://doi.org/10.1177/0957926508088962'},
+      {t:'Framing climate change framing research',a:'Guenther et al.',y:'2024',d:'https://doi.org/10.1177/10755470241275542'}
     ]
   },
-  contribution: {
-    tag:'Research contribution', tagClass:'tag-coral', contribClass:'contrib-coral', wfClass:'wf-coral',
-    related:['gap','corpus','cads'],
-    title:'Expected research contributions',
+  contribution:{
+    tag:'Research contribution',tc:'t-fire',cc:'c-fire',wc:'w-fire',
+    rel:['gap','corpus','cads'],
+    title:'What this paper does',
     authors:'Environmental Communication · Science Communication',
-    body:'Three contributions stack on each other: (1) Empirical novelty — the first peer-reviewed corpus-based linguistic analysis of wildfire representation in cinema, filling a documented gap. (2) Methodological novelty — the first application of CADS to environmental themes in film dialogue. (3) Theoretical integration — a unified framework operationalising ten strands as measurable linguistic variables.',
-    contrib:'For the dissertation-as-papers structure, this paper is the methodological anchor — establishing the corpus infrastructure, theoretical framework, and CADS workflow that subsequent papers can extend, refine, or apply to different corpora, genres, or languages.',
-    wildfire:'The wildfire focus makes the paper timely and publicly relevant: as wildfire seasons intensify globally, the question of how cinema frames this risk has direct implications for public engagement, science communication, and climate governance.',
+    body:"Three contributions that build on each other. First: this is the first peer-reviewed corpus-based linguistic analysis of wildfire representation in cinema. Second: it's the first time CADS has been applied to environmental themes in film dialogue — which means the method itself is a contribution, not just the findings. Third: the integrated theoretical framework operationalises ten strands as measurable linguistic variables in a way that can be replicated for other climate sub-genres, other languages, other decades.",
+    contrib:"For the dissertation-as-papers structure, this paper is the methodological anchor. The corpus, the framework, and the workflow it establishes are the infrastructure the rest of the dissertation uses. Subsequent papers can apply the same method to different corpora, test the framework against different genres, or interrogate findings from different theoretical angles.",
+    wf:"The wildfire focus makes this timely in a way that broader climate cinema research isn't. Wildfire seasons are getting longer, more destructive, and more geographically widespread. The question of what stories we tell about them — and what those stories leave out — is not academic.",
     papers:[
-      { title:'Environmental Communication (journal)', authors:'Taylor & Francis', year:'ongoing', doi:'https://www.tandfonline.com/toc/renv20/current' },
-      { title:'Science Communication (journal)', authors:'SAGE', year:'ongoing', doi:'https://journals.sagepub.com/home/scx' }
+      {t:'Environmental Communication',a:'Taylor & Francis',y:'ongoing',d:'https://www.tandfonline.com/toc/renv20/current'},
+      {t:'Science Communication',a:'SAGE',y:'ongoing',d:'https://journals.sagepub.com/home/scx'}
     ]
   }
 };
 
-let current = null;
-let wfOn = false;
-let activeFilter = 'all';
-
-const allNodeIds = Object.keys(DATA);
+const allIds = Object.keys(D);
+let cur = null, wfOn = false, activeF = 'all';
+const cats = {corpus:'output',cads:'method',framing:'core',cda:'core',narrative:'core',affect:'core',clt:'core','frames-op':'op','voice-op':'op','genre-op':'op','emotion-op':'op','distance-op':'op',agency:'support',pus:'support',cultivation:'support',clifi:'support',gap:'output',synthesis:'method',contribution:'output'};
 
 function show(id) {
-  if (current === id) { closePanel(); return; }
-  current = id;
-  const d = DATA[id];
-
-  // papers HTML
-  const papersHtml = d.papers.map(p =>
-    `<li class="paper-item">
-      <a href="${p.doi}" target="_blank" rel="noopener">${p.title}</a>
-      <span class="paper-year">${p.authors}, ${p.year}</span>
-      <a class="paper-doi" href="${p.doi}" target="_blank" rel="noopener">${p.doi.replace('https://','')}</a>
-    </li>`
+  if (cur === id) { close(); return; }
+  cur = id;
+  const d = D[id];
+  const papers = d.papers.map(p =>
+    `<li class="pi"><a href="${p.d}" target="_blank" rel="noopener">${p.t}</a><span class="pi-year">${p.a}, ${p.y}</span><a class="pi-doi" href="${p.d}" target="_blank" rel="noopener">${p.d.replace('https://','')}</a></li>`
   ).join('');
-
-  // related pills
-  const relatedHtml = (d.related || []).map(r => {
-    const rd = DATA[r];
-    return rd ? `<span class="related-pill" onclick="show('${r}')">${rd.title.split('—')[0].trim()}</span>` : '';
-  }).join('');
-
-  document.getElementById('panel-content').innerHTML = `
-    <span class="panel-close" onclick="closePanel()">×</span>
-    <span class="panel-tag ${d.tagClass}">${d.tag}</span>
-    <p class="panel-title">${d.title}</p>
-    <p class="panel-authors">${d.authors}</p>
-
-    <span class="panel-section-label">Overview</span>
-    <p class="panel-body">${d.body}</p>
-
-    <span class="panel-section-label">Contribution to the paper</span>
-    <div class="panel-contrib ${d.contribClass}">${d.contrib}</div>
-
-    <div class="panel-wildfire ${d.wfClass} ${wfOn ? 'show' : ''}" id="wf-detail">
-      <strong style="display:block;margin-bottom:4px;font-size:11px;letter-spacing:0.08em;text-transform:uppercase">Wildfire lens</strong>
-      ${d.wildfire}
-    </div>
-
-    <span class="panel-section-label">Key papers</span>
-    <ul class="papers-list">${papersHtml}</ul>
-
-    ${relatedHtml ? `<span class="panel-section-label">Connected nodes</span><div class="related-nodes">${relatedHtml}</div>` : ''}
-  `;
-
-  document.getElementById('panel-empty').style.display = 'none';
-  document.getElementById('panel-content').classList.add('visible');
-  highlightConnections(id);
+  const related = (d.rel||[]).map(r => D[r] ? `<span class="rp" onclick="show('${r}')">${D[r].title.split('—')[0].split(':')[0].trim()}</span>` : '').join('');
+  document.getElementById('pcontent').innerHTML =
+    `<span class="p-close" onclick="close()">×</span>
+     <span class="p-tag ${d.tc}">${d.tag}</span>
+     <p class="p-title">${d.title}</p>
+     <p class="p-authors">${d.authors}</p>
+     <span class="p-sl">What it is</span>
+     <p class="p-body">${d.body}</p>
+     <span class="p-sl">What it contributes to the paper</span>
+     <div class="p-contrib ${d.cc}">${d.contrib}</div>
+     <div class="p-wf ${d.wc} ${wfOn?'show':''}" id="wfd"><strong style="display:block;margin-bottom:4px;font-size:9px;letter-spacing:0.12em;text-transform:uppercase">Wildfire lens</strong>${d.wf}</div>
+     <span class="p-sl">Key papers</span>
+     <ul class="papers">${papers}</ul>
+     ${related ? `<span class="p-sl">Connected nodes</span><div class="related">${related}</div>` : ''}`;
+  document.getElementById('pempty').style.display = 'none';
+  document.getElementById('pcontent').classList.add('show');
+  dim(id);
 }
 
-function closePanel() {
-  current = null;
-  document.getElementById('panel-empty').style.display = 'block';
-  document.getElementById('panel-content').classList.remove('visible');
-  clearHighlights();
+function close() {
+  cur = null;
+  document.getElementById('pempty').style.display = 'block';
+  document.getElementById('pcontent').classList.remove('show');
+  undim();
 }
 
-function highlightConnections(id) {
-  const related = (DATA[id] && DATA[id].related) || [];
-  const relevant = new Set([id, ...related]);
-  allNodeIds.forEach(nid => {
-    const el = document.getElementById('n-' + nid);
-    if (!el) return;
-    if (relevant.has(nid)) {
-      el.classList.remove('dimmed');
-      el.classList.add('highlighted');
-    } else {
-      el.classList.add('dimmed');
-      el.classList.remove('highlighted');
-    }
+function dim(id) {
+  const rel = new Set([id, ...(D[id].rel||[])]);
+  allIds.forEach(nid => {
+    const el = document.getElementById('n-'+nid);
+    if (el) el.classList.toggle('dim', !rel.has(nid));
+    if (rel.has(nid) && el) el.classList.add('lit');
+    else if (el) el.classList.remove('lit');
   });
 }
 
-function clearHighlights() {
-  allNodeIds.forEach(nid => {
-    const el = document.getElementById('n-' + nid);
-    if (el) { el.classList.remove('dimmed','highlighted'); }
+function undim() {
+  allIds.forEach(nid => {
+    const el = document.getElementById('n-'+nid);
+    if (el) { el.classList.remove('dim','lit'); }
   });
-  applyFilter(activeFilter);
+  applyF(activeF);
 }
 
-function hoverIn(id) {
-  if (current) return;
-  const related = (DATA[id] && DATA[id].related) || [];
-  const relevant = new Set([id, ...related]);
-  allNodeIds.forEach(nid => {
-    const el = document.getElementById('n-' + nid);
-    if (!el) return;
-    el.classList.toggle('dimmed', !relevant.has(nid));
+function hin(id) {
+  if (cur) return;
+  const rel = new Set([id, ...(D[id].rel||[])]);
+  allIds.forEach(nid => {
+    const el = document.getElementById('n-'+nid);
+    if (el) el.classList.toggle('dim', !rel.has(nid));
   });
 }
 
-function hoverOut() {
-  if (current) return;
-  allNodeIds.forEach(nid => {
-    const el = document.getElementById('n-' + nid);
-    if (el) el.classList.remove('dimmed');
-  });
-  applyFilter(activeFilter);
+function hout() {
+  if (cur) return;
+  allIds.forEach(nid => { const el = document.getElementById('n-'+nid); if(el) el.classList.remove('dim'); });
+  applyF(activeF);
 }
 
-function toggleWildfire() {
+function toggleWF() {
   wfOn = !wfOn;
-  document.getElementById('wf-track').classList.toggle('on', wfOn);
-  document.getElementById('wf-indicators').style.opacity = wfOn ? '1' : '0';
-  const wfEl = document.getElementById('wf-detail');
-  if (wfEl) wfEl.classList.toggle('show', wfOn);
+  document.getElementById('wftrk').classList.toggle('on', wfOn);
+  document.getElementById('wfdots').style.opacity = wfOn ? '1' : '0';
+  const wfd = document.getElementById('wfd');
+  if (wfd) wfd.classList.toggle('show', wfOn);
 }
 
-function setFilter(cat, btn) {
-  activeFilter = cat;
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  applyFilter(cat);
+function setF(cat, btn) {
+  activeF = cat;
+  document.querySelectorAll('.fb').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  applyF(cat);
 }
 
-const CAT_MAP = {
-  corpus:'output', cads:'method', framing:'core', cda:'core', narrative:'core',
-  affect:'core', clt:'core', 'frames-op':'operationalisation', 'voice-op':'operationalisation',
-  'genre-op':'operationalisation', 'emotion-op':'operationalisation', 'distance-op':'operationalisation',
-  agency:'support', pus:'support', cultivation:'support', clifi:'support',
-  gap:'output', synthesis:'method', contribution:'output'
-};
-
-function applyFilter(cat) {
-  if (current) return;
-  allNodeIds.forEach(nid => {
-    const el = document.getElementById('n-' + nid);
+function applyF(cat) {
+  if (cur) return;
+  allIds.forEach(nid => {
+    const el = document.getElementById('n-'+nid);
     if (!el) return;
-    if (cat === 'all') { el.classList.remove('dimmed'); }
-    else { el.classList.toggle('dimmed', CAT_MAP[nid] !== cat); }
+    el.classList.toggle('dim', cat !== 'all' && cats[nid] !== cat);
   });
 }
 
-function doSearch(val) {
-  if (current) return;
-  const q = val.toLowerCase().trim();
-  if (!q) { applyFilter(activeFilter); return; }
-  allNodeIds.forEach(nid => {
-    const el = document.getElementById('n-' + nid);
+function doSearch(v) {
+  if (cur) return;
+  const q = v.toLowerCase().trim();
+  if (!q) { applyF(activeF); return; }
+  allIds.forEach(nid => {
+    const el = document.getElementById('n-'+nid);
     if (!el) return;
-    const d = DATA[nid];
-    const text = (d.title + ' ' + d.authors + ' ' + (d.body||'')).toLowerCase();
-    el.classList.toggle('dimmed', !text.includes(q));
+    const d = D[nid];
+    const txt = (d.title+' '+d.authors+' '+d.body+' '+d.tag).toLowerCase();
+    el.classList.toggle('dim', !txt.includes(q));
   });
 }
 </script>
