@@ -225,7 +225,7 @@ body {
 .p-wf.show { display: block; }
 .p-wf-label { display: block; margin-bottom: 4px; font-size: 9px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fire); }
 
-/* APA 7 papers */
+/* papers */
 .papers { list-style: none; margin-top: 0.4rem; display: flex; flex-direction: column; gap: 10px; }
 .pi { font-size: 11px; font-weight: 400; line-height: 1.6; color: var(--text3); }
 .pi-apa { display: block; }
@@ -259,13 +259,57 @@ body {
 .foot a { color: var(--text4); text-decoration: none; border-bottom: 1px solid var(--rule2); }
 .foot a:hover { color: var(--fire); }
 
+/* ── RESPONSIVE ── */
+
+/* Tablet portrait: 600–760px */
 @media (max-width: 760px) {
   .body { grid-template-columns: 1fr; }
-  .panel { max-height: none; position: static; border-top: 1px solid var(--rule); }
-  .diag { border-right: none; padding: 1rem; }
-  .mast { padding: 1.25rem; }
+  .diag { border-right: none; padding: 1rem 1rem 0.5rem; }
+  .panel {
+    max-height: none;
+    position: static;
+    border-top: 1px solid var(--rule);
+    overflow-y: visible;
+  }
+  .mast { padding: 1.25rem 1.25rem 1rem; }
+  .mast-top { gap: 1rem; margin-bottom: 0.85rem; }
   .mast-stat { display: none; }
-  .bar { padding: 0.6rem 1rem; }
+  .mast-bottom { gap: 1rem; }
+  .mast-fact { max-width: 100%; font-size: 12px; }
+  .bar { padding: 0.6rem 1rem; gap: 0.5rem; }
+  .srch { max-width: 160px; }
+  .p-content { padding: 1.25rem 1.25rem 1.5rem; }
+  .p-empty { padding: 1.5rem 1.25rem; }
+}
+
+/* Phone portrait: up to 480px */
+@media (max-width: 480px) {
+  .mast { padding: 1rem; }
+  .mast h1 { font-size: 22px; }
+  .mast-diss { font-size: 9px; letter-spacing: 0.12em; }
+  .mast-bottom { flex-direction: column; gap: 0.6rem; }
+  .mast-fact { font-size: 11px; }
+
+  .bar { flex-wrap: wrap; gap: 0.4rem; padding: 0.5rem 0.75rem; }
+  .bar-lbl { display: none; }
+  .srch { min-width: 110px; max-width: 140px; }
+  .filters { gap: 2px; }
+  .fb { font-size: 8px; padding: 3px 7px; }
+  .wftog { font-size: 9px; }
+
+  .diag { padding: 0.75rem 0.75rem 0; }
+  .hint { font-size: 9px; margin-bottom: 0.5rem; }
+
+  .p-title { font-size: 16px; }
+  .p-body { font-size: 12px; }
+  .p-contrib { font-size: 12px; padding: 9px 11px; }
+  .p-wf { font-size: 11px; }
+  .pi { font-size: 10px; }
+  .pi-doi { font-size: 9px; }
+  .p-content { padding: 1rem; }
+  .p-empty { padding: 1.25rem 1rem; }
+
+  .foot { flex-direction: column; gap: 4px; align-items: flex-start; padding: 0.75rem 1rem; }
 }
 </style>
 </head>
@@ -697,7 +741,7 @@ function show(id){
      <span class="p-sl">Contribution to the paper</span>
      <div class="p-contrib ${d.cc}">${d.contrib}</div>
      <div class="p-wf ${d.wc} ${wfOn?'show':''}" id="wfd"><span class="p-wf-label">Wildfire lens</span>${d.wf}</div>
-     <span class="p-sl">References (APA 7)</span>
+     <span class="p-sl">References</span>
      <ul class="papers">${papers}</ul>
      ${related?`<span class="p-sl">Connected nodes</span><div class="related">${related}</div>`:''}`;
   document.getElementById('pempty').style.display='none';
