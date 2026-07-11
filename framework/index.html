@@ -237,6 +237,118 @@ body {
 .rp { font-size: 10px; font-weight: 600; padding: 3px 8px; border: 1px solid var(--rule2); border-radius: 3px; cursor: pointer; color: var(--text3); transition: all 0.12s; background: var(--bg3); }
 .rp:hover { color: var(--text); border-color: var(--fire-dim); }
 
+/* Nisbet frames tooltip */
+.nisbet-tip {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  width: 520px;
+  max-width: 92vw;
+  max-height: 72vh;
+  overflow-y: auto;
+  background: #181510;
+  border: 1px solid var(--amber);
+  border-radius: 6px;
+  padding: 0;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.7);
+  font-family: var(--font);
+  pointer-events: auto;
+}
+.nisbet-tip.show { display: block; }
+.nisbet-tip-head {
+  position: sticky;
+  top: 0;
+  background: #1e1a10;
+  border-bottom: 1px solid var(--rule2);
+  padding: 12px 16px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+}
+.nisbet-tip-head h3 {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--amber);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.nisbet-tip-head span {
+  font-size: 10px;
+  color: var(--text4);
+  font-weight: 500;
+}
+.nisbet-tip-close {
+  font-size: 16px;
+  color: var(--text4);
+  cursor: pointer;
+  line-height: 1;
+  padding-left: 10px;
+  transition: color 0.12s;
+}
+.nisbet-tip-close:hover { color: var(--text); }
+.nisbet-tip table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+.nisbet-tip table th {
+  text-align: left;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text4);
+  padding: 8px 14px 6px;
+  border-bottom: 1px solid var(--rule);
+  background: #181510;
+  position: sticky;
+  top: 45px;
+}
+.nisbet-tip table td {
+  padding: 10px 14px;
+  vertical-align: top;
+  border-bottom: 1px solid var(--rule);
+  line-height: 1.6;
+  color: var(--text2);
+}
+.nisbet-tip table tr:last-child td { border-bottom: none; }
+.nisbet-tip table tr:hover td { background: #1e1a10; }
+.nisbet-tip .frame-num {
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--amber);
+  white-space: nowrap;
+  padding-right: 8px;
+  width: 24px;
+}
+.nisbet-tip .frame-name {
+  font-weight: 700;
+  color: var(--text);
+  display: block;
+  margin-bottom: 3px;
+  font-size: 11px;
+}
+.nisbet-tip .frame-eg {
+  color: var(--text3);
+  font-size: 10px;
+  display: block;
+  margin-bottom: 2px;
+}
+.nisbet-tip .frame-impl {
+  color: var(--text4);
+  font-size: 10px;
+  font-style: italic;
+}
+.nisbet-tip-hint {
+  font-size: 9px;
+  color: var(--text4);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
 /* colour variants */
 .t-fire   { background: var(--fire-bg2); color: var(--fire2); }
 .t-blue   { background: var(--blue-bg);  color: #6aaad8; }
@@ -432,7 +544,7 @@ body {
       </g>
 
       <!-- operationalisation -->
-      <g id="n-frames-op" class="n" data-cat="op" onclick="show('frames-op')" onmouseenter="hin('frames-op')" onmouseleave="hout()">
+      <g id="n-frames-op" class="n" data-cat="op" onclick="show('frames-op')" onmouseenter="hinFrames(event,'frames-op')" onmouseleave="hout()">
         <rect x="20" y="328" width="132" height="56" rx="4" fill="#1a1208" stroke="#c47a18" stroke-width="1"/>
         <text x="86" y="349" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="12" font-weight="800" fill="#c47a18">Frame coding</text>
         <text x="86" y="366" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="9" font-weight="500" fill="#7a5010">8 Nisbet types</text>
@@ -534,6 +646,91 @@ body {
     </div>
     <div class="p-content" id="pcontent"></div>
   </div>
+</div>
+
+<!-- Nisbet Frames Tooltip -->
+<div class="nisbet-tip" id="nisbet-tip" onmouseenter="tipStay()" onmouseleave="tipLeave()">
+  <div class="nisbet-tip-head">
+    <div>
+      <h3>Nisbet's 8 Climate Frames</h3>
+      <span class="nisbet-tip-hint">Nisbet, M. C. (2009) · Environmental Communication</span>
+    </div>
+    <span class="nisbet-tip-close" onclick="hideTip()">×</span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:28px">#</th>
+        <th>Frame · Example · Application</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="frame-num">1</td>
+        <td>
+          <span class="frame-name">Economic Development and Competitiveness</span>
+          <span class="frame-eg">Example: "Creating green jobs" was central to both 2008 U.S. presidential campaigns and the Obama administration, presenting climate action as an economic opportunity and pathway to recovery.</span>
+          <span class="frame-impl">Application: TV ads and public speeches emphasising how climate policy can revitalise the economy, appealing to those who prioritise growth.</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="frame-num">2</td>
+        <td>
+          <span class="frame-name">Morality and Ethics</span>
+          <span class="frame-eg">Example: A PBS Now documentary brought evangelical leaders to the Arctic alongside scientists, framing climate change as a moral responsibility and matter of stewardship of God's creation.</span>
+          <span class="frame-impl">Application: Campaigns like Al Gore's WE initiative pair unlikely spokespeople (e.g., Pelosi and Gingrich) using Civil Rights Movement analogies to present climate as a shared moral challenge.</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="frame-num">3</td>
+        <td>
+          <span class="frame-name">Pandora's Box / Runaway Science</span>
+          <span class="frame-eg">Example: An Inconvenient Truth and its promotional materials dramatise climate change as environmental catastrophe, using polar bears on melting ice and hurricane-shaped smoke plumes to evoke looming crisis.</span>
+          <span class="frame-impl">Application: Dramatic visuals and language highlighting the potential catastrophic consequences of inaction. The dominant frame in wildfire and disaster cinema.</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="frame-num">4</td>
+        <td>
+          <span class="frame-name">Scientific and Technical Uncertainty</span>
+          <span class="frame-eg">Example: Conservative think tanks and politicians have framed climate science as uncertain, citing contrarian researchers and emphasising debates over what is known versus unknown.</span>
+          <span class="frame-impl">Application: Talking points, media appearances, and advertisements stressing the need for more research before policy action.</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="frame-num">5</td>
+        <td>
+          <span class="frame-name">Public Accountability and Governance</span>
+          <span class="frame-eg">Example: "War on science" rhetoric, popularised by Chris Mooney and used by Clinton and Obama, frames climate change as an issue of accountability, accusing opponents of putting politics ahead of evidence.</span>
+          <span class="frame-impl">Application: Campaigns and speeches highlighting transparency, evidence-based policy, and the public's right to know.</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="frame-num">6</td>
+        <td>
+          <span class="frame-name">Middle Way / Alternative Path</span>
+          <span class="frame-eg">Example: Nuclear energy reframed as a compromise solution, promoted by figures like Christine Todd Whitman and Patrick Moore as "cleaner, cheaper, and safer" than coal.</span>
+          <span class="frame-impl">Application: Advocacy for pragmatic middle-ground solutions that appeal to those resistant to either fossil fuel dependence or rapid transition.</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="frame-num">7</td>
+        <td>
+          <span class="frame-name">Social Progress</span>
+          <span class="frame-eg">Example: Climate change framed as an opportunity for societal transformation and harmony with nature. E.O. Wilson's The Creation appeals to shared values of stewardship and environmental respect.</span>
+          <span class="frame-impl">Application: Messaging focused on positive collective transformation and quality of life improvements.</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="frame-num">8</td>
+        <td>
+          <span class="frame-name">Public Health</span>
+          <span class="frame-eg">Example: Framing highlights climate-linked increases in asthma, allergies, and heat stroke, particularly among vulnerable populations, making the issue personally relevant to new audiences.</span>
+          <span class="frame-impl">Application: Local news and advocacy materials connecting climate change to immediate, familiar health concerns rather than distant global impacts.</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 <footer class="foot">
@@ -772,6 +969,7 @@ function hout(){
   if(cur)return;
   allIds.forEach(nid=>{const el=document.getElementById('n-'+nid);if(el)el.classList.remove('dim');});
   applyF(activeF);
+  tipLeave();
 }
 
 function toggleWF(){
@@ -792,6 +990,51 @@ function setF(cat,btn){
 function applyF(cat){
   if(cur)return;
   allIds.forEach(nid=>{const el=document.getElementById('n-'+nid);if(!el)return;el.classList.toggle('dim',cat!=='all'&&cats[nid]!==cat);});
+}
+
+/* Nisbet tooltip */
+let tipTimer = null;
+let tipPinned = false;
+
+function hinFrames(e, id) {
+  hin(id);
+  clearTimeout(tipTimer);
+  const tip = document.getElementById('nisbet-tip');
+  positionTip(tip, e);
+  tip.classList.add('show');
+}
+
+function positionTip(tip, e) {
+  tip.classList.add('show');
+  const margin = 12;
+  const tw = tip.offsetWidth || 520;
+  const th = tip.offsetHeight || 400;
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+  // Try to position to the right of cursor, flip left if needed
+  let x = e.clientX + margin;
+  let y = e.clientY - 60;
+  if (x + tw > vw - margin) x = e.clientX - tw - margin;
+  if (y + th > vh - margin) y = vh - th - margin;
+  if (y < margin) y = margin;
+  tip.style.left = x + 'px';
+  tip.style.top  = y + 'px';
+}
+
+function tipStay() {
+  clearTimeout(tipTimer);
+}
+
+function tipLeave() {
+  if (tipPinned) return;
+  tipTimer = setTimeout(() => {
+    document.getElementById('nisbet-tip').classList.remove('show');
+  }, 220);
+}
+
+function hideTip() {
+  tipPinned = false;
+  document.getElementById('nisbet-tip').classList.remove('show');
 }
 
 function doSearch(v){
